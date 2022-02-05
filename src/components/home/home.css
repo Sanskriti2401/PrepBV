@@ -1,0 +1,12 @@
+.box {
+  background-color: #d6e5fa;
+  margin: 25px;
+  border-radius: 10px;
+  height: 400px;
+  display: flex;
+}
+
+.img img {
+  height: 500px;
+  width: 400px;
+}

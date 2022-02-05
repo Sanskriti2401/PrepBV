@@ -1,0 +1,40 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 7%;
+  font-weight: 500;
+  font-size: 16px;
+  background-color: #000000;
+  color: #d6e5fa;
+}
+
+.option {
+  display: flex;
+  list-style-type: none;
+}
+.option li {
+  padding: 0px 20px;
+}
+
+.option li a {
+  font-family: sans-serif;
+  text-decoration: none;
+  color: #d6e5fa;
+  transition: all 0.3s ease 0s;
+}
+
+.option li a:hover {
+  color: #fff8f3;
+  font-size: 18px;
+}
+
+.img img {
+  height: 40px;
+  width: 160px;
+}
