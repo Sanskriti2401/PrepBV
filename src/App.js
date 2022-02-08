@@ -5,8 +5,8 @@ import Login from "./components/login/login";
 function App() {
   return (
     <div className="App">
-      {/* <Home /> */}
-      <Login />
+      <Home />
+      <p>I am sanskriti </p>
     </div>
   );
 }
