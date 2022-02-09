@@ -1,0 +1,71 @@
+.login {
+    height: 100vh;
+    display: flex;
+}
+
+.right-part {
+    width: 65vw;
+    display: block;
+}
+
+.left-part {
+    width: 41.5vw;
+    display: block;
+}
+
+.bg {
+    background-color: #b5eaea;
+    background-position: left;
+    width: 40%;
+    height: 100vh;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.img img {
+    height: 60%;
+    width: 32%;
+    position:absolute;
+    top: 25vh;
+    left: 3.4%;
+}
+
+.logo img {
+    height: 35%;
+    width: 82.5%;
+    position: relative;
+    top: 18vh;
+    left: 8.4%;
+}
+
+.text > h3{
+    /* display: flex;     */
+    text-align: center;
+    margin-top: 8%;
+    margin-bottom: 0%;
+    font-size: 250%;
+}
+
+.user {
+    text-align: center;
+    padding-top: 1%;
+}
+
+.signup {
+    text-align: center;
+    margin-top: 0%;
+    text-decoration: underline;
+}
+
+.signup:hover {
+    color: #0000EE ;
+    cursor: pointer;
+}
+
+.hr {
+    margin-top: 2%;
+    margin-right: 0%;
+    border-top: 2px solid black;
+}
+
