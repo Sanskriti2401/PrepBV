@@ -5,7 +5,6 @@ function App() {
   return (
     <div className="App">
       <Home />
-      <p>I am sanskriti </p>
     </div>
   );
 }

@@ -14,7 +14,7 @@ export default function Nav() {
             <a href="#">Home</a>
           </li>
           <li>
-            <a href="#">Practice questions</a>
+            <a href="">Practice questions</a>
           </li>
           <li>
             <a href="#">Post</a>
