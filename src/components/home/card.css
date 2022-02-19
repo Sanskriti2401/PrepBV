@@ -1,0 +1,30 @@
+.card {
+  box-shadow: 0 0 10px 5px #e1e5ee;
+  width: 320px;
+  border-radius: 12px;
+  padding: 25px 0px;
+  float: left;
+  background-color: #b5eaea;
+  margin: 20px 75px;
+  cursor: pointer;
+  transition: all 0, 4s cubic-bezier(0.175, 0.885, 0, 1);
+}
+
+.card:hover {
+  box-shadow: 0px 30px 18px -8px rgba(0, 0, 0, 0.1);
+  transform: scale(1.05, 1.05);
+}
+
+.card img {
+  width: 320px;
+  height: 260px;
+}
+
+.card p {
+  font-size: 35px;
+  font-family: "Arial, Helvetica, sans-serif";
+  text-align: center;
+  margin-top: 20px;
+  color: #058391;
+  font-weight: 600;
+}
