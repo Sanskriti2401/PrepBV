@@ -8,21 +8,21 @@ export default function Login() {
     return (
         <>
             <div className="login">
-                <div className="left-part">
-                    <div className="bg"></div>
-                    <div className="img">
+                <div className="login-left-part">
+                    <div className="login-bg"></div>
+                    <div className="login-img">
                         <img src={img1} alt="Error" />
                     </div>
-                    <div className="logo">
+                    <div className="login-logo">
                         <img src={logo} alt="PrepBV" />
                     </div>
                 </div>
-                <div className="right-part">
-                    <div className="text">
+                <div className="login-right-part">
+                    <div className="login-text">
                         <h3>Login</h3>
-                        <p className="user">New User?</p>
-                        <p className="signup">Sign Up</p>
-                        <hr className="hr"></hr>
+                        <p className="login-user">New User?</p>
+                        <p className="login-signup">Sign Up</p>
+                        <hr className="login-hr"></hr>
                         <LoginBasic />
                     </div>
                 </div>
