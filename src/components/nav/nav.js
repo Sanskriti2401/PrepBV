@@ -1,14 +1,13 @@
 import React from "react";
 import "./nav.css";
-import b from "../../images/3.jpeg";
+import b from "../../images/logo.jpeg";
 
 export default function Nav() {
   return (
     <>
       <div className="nav">
-        <div className="img">
-          <img src={b} alt="image" />
-        </div>
+        <img src={b} alt="image" />
+
         <ul className="option">
           <li>
             <a href="#">Home</a>

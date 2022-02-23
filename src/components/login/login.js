@@ -1,7 +1,7 @@
 import React from "react";
 import "./login.css";
 import img1 from "../../images/2.png";
-import logo from "../../images/3.jpeg";
+import logo from "../../images/logo.jpeg";
 import LoginBasic from "../login_basic/login_basic";
 
 export default function Login() {
@@ -30,3 +30,4 @@ export default function Login() {
         </>
     );
 }
+
