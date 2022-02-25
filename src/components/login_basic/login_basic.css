@@ -1,10 +1,10 @@
-.l_b-email {
+.email {
     margin-left: 150px;
     margin-top: 100px;
     margin-right: 100px;
 }
 
-.l_b-password {
+.password {
     margin-left: 150px;
     margin-right: 100px;
 }
@@ -29,7 +29,7 @@ input[type=password]{
     box-sizing: border-box;
 }
 
-.l_b-submit{
+.submit{
     text-align: center;
 }
 
