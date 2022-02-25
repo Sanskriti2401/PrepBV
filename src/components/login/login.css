@@ -3,17 +3,17 @@
     display: flex;
 }
 
-.right-part {
+.login-right-part {
     width: 65vw;
     display: block;
 }
 
-.left-part {
+.login-left-part {
     width: 41.5vw;
     display: block;
 }
 
-.bg {
+.login-bg {
     background-color: #b5eaea;
     background-position: left;
     width: 40%;
@@ -23,7 +23,7 @@
     top: 0;
 }
 
-.img img {
+.login-img img {
     height: 60%;
     width: 32%;
     position:absolute;
@@ -31,7 +31,7 @@
     left: 3.4%;
 }
 
-.logo img {
+.login-logo img {
     height: 35%;
     width: 82.5%;
     position: relative;
@@ -39,7 +39,7 @@
     left: 8.4%;
 }
 
-.text > h3{
+.login-text > h3{
     /* display: flex;     */
     text-align: center;
     margin-top: 8%;
@@ -47,25 +47,26 @@
     font-size: 250%;
 }
 
-.user {
+.login-user {
     text-align: center;
     padding-top: 1%;
 }
 
-.signup {
+.login-signup {
     text-align: center;
     margin-top: 0%;
     text-decoration: underline;
 }
 
-.signup:hover {
+.login-signup:hover {
     color: #0000EE ;
     cursor: pointer;
 }
 
-.hr {
+.login-hr {
     margin-top: 2%;
     margin-right: 0%;
+    margin-left: 1.5%;
     border-top: 2px solid black;
 }
 

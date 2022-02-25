@@ -20,7 +20,7 @@ export default function LoginBasic() {
         <>
             <div className="l_b">
                 <form onSubmit={handleSubmit}>
-                    <div className="email">
+                    <div className="l_b-email">
                         <label>
                             Email Address
                             <input
@@ -31,7 +31,7 @@ export default function LoginBasic() {
                             />
                         </label>
                     </div>
-                    <div className="password">
+                    <div className="l_b-password">
                         <label>
                             Password
                             <input
@@ -42,7 +42,7 @@ export default function LoginBasic() {
                             />
                         </label>
                     </div>
-                    <div className="submit">
+                    <div className="l_b-submit">
                         <input type="submit" value={"Login"}></input>
                     </div>
                 </form>
