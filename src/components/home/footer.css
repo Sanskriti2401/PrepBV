@@ -12,6 +12,15 @@
   font-style: italic;
   font-weight: 600;
   font-size: 20px;
+  width: 380px;
+}
+
+.foot2 {
+  padding: 2%;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 20px;
 }
 /*
 .foot2 {
@@ -31,6 +40,16 @@
   cursor: pointer;
 }
 
+.list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
 .span:hover {
-  color: aliceblue;
+  color: #6998ab;
+}
+
+.foot1 img {
+  width: 35%;
+  height: 30%;
 }

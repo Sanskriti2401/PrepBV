@@ -1,6 +1,13 @@
 import React from "react";
 import "./footer.css";
 import logo from "../../images/logo.jpeg";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faTwitterSquare,
+  faFacebook,
+  faLinkedin,
+  faInstagramSquare,
+} from "@fortawesome/free-brands-svg-icons";
 
 export default function Footer() {
   return (
@@ -14,12 +21,11 @@ export default function Footer() {
           Call Us: 923490234
         </p>
       </div>
-      <div className="foot1">
+      <div className="foot2">
         <p>
           Quick Links<br></br>
-          <br></br>
         </p>
-        <ul>
+        <ul className="list">
           <li className="span"> Home</li>
           <li className="span"> Practice</li>
           <li className="span">Interview Experience</li>
@@ -27,16 +33,30 @@ export default function Footer() {
         </ul>
       </div>
 
-      <div className="foot1">
+      <div className="foot2">
         <p>
           Social<br></br>
-          <br></br>
         </p>
-        <ul>
-          <li className="span"> LinkedIn</li>
-          <li className="span">Facebook</li>
-          <li className="span"> Instagram</li>
-          <li className="span">Connect with Seniors</li>
+        <ul className="list">
+          <li className="span">
+            <FontAwesomeIcon icon={faLinkedin} />
+            &nbsp; LinkedIn
+          </li>
+
+          <li className="span">
+            <FontAwesomeIcon icon={faFacebook} />
+            &nbsp; Facebook
+          </li>
+
+          <li className="span">
+            <FontAwesomeIcon icon={faTwitterSquare} />
+            &nbsp; Twitter
+          </li>
+
+          <li className="span">
+            <FontAwesomeIcon icon={faInstagramSquare} />
+            &nbsp; Instagram
+          </li>
         </ul>
       </div>
     </div>

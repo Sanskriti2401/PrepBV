@@ -5,6 +5,7 @@ import a from "../../images/2.png";
 import Card from "./card";
 import company from "./company";
 import Footer from "./footer";
+import Slider from "./slider";
 
 function createcard(company) {
   return <Card key={company.id} img={company.url} />;
@@ -31,6 +32,7 @@ export default function Home() {
       </div>
       <h1 className="h">Select Company</h1>
       <div className="cards">{company.map(createcard)}</div>
+      <Slider />
       <Footer />
     </>
   );

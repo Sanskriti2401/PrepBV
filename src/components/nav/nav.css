@@ -7,7 +7,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 7%;
+  padding: 10px 4%;
   font-weight: 500;
   font-size: 16px;
   background-color: #000000;
@@ -16,6 +16,7 @@
 .option {
   display: flex;
   list-style-type: none;
+  margin: 0 2% 0 0;
 }
 .option li {
   padding: 0px 20px;
@@ -52,4 +53,29 @@
 .nav img {
   height: 43px;
   width: 180px;
+  margin: 5px;
+}
+
+.profile {
+  position: relative;
+}
+
+.menu {
+  background-color: #000000;
+  list-style-type: none;
+  padding: 0;
+  position: absolute;
+  visibility: hidden;
+}
+
+.option .menu-content {
+  padding: 15px 20px;
+}
+
+.option .menu-content:hover {
+  background-color: #2c3333;
+}
+
+.profile:hover .menu {
+  visibility: visible;
 }
