@@ -2,7 +2,6 @@
   margin: 0px;
   padding: 0px;
 }
-
 .nav {
   display: flex;
   justify-content: space-between;
@@ -34,7 +33,7 @@
   font-size: 18px;
 }
 
-.img img {
+.img logo {
   height: 40px;
   width: 160px;
 }

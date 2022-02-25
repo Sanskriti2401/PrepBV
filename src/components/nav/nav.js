@@ -6,7 +6,7 @@ export default function Nav() {
   return (
     <>
       <div className="nav">
-        <div className="img">
+        <div className="logo">
           <img src={b} alt="image" />
         </div>
         <ul className="option">
