@@ -1,5 +1,5 @@
-import "./App.css";
 import Home from "./components/home/home";
+import "bootstrap/dist/css/bootstrap.min.css";
 import Login from "./components/login/login";
 import Practice from "./components/practice/practice";
 import topicDetails from "./components/practice/topicDetails";
