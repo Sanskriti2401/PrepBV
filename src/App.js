@@ -21,3 +21,11 @@ function App() {
   );
 }
 export default App;
+
+/*
+<Route path="/home">
+{login ? <Profile/>: <Redirect to="/" />} 
+</Route>
+
+
+*/
