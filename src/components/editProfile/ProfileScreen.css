@@ -1,0 +1,14 @@
+.img-component{
+    display: flex;
+    justify-content: center;
+    margin: 80px;
+    width:30%
+}
+
+.circle-img {
+
+    border-radius: 50%;
+    border: 6px solid #bae5e5;
+    width: 60%;
+    
+  }

@@ -1,6 +1,6 @@
 .card {
   box-shadow: 0 0 10px 5px #e1e5ee;
-  width: 320px;
+  width: 240px;
   border-radius: 12px;
   padding: 25px 0px;
   float: left;
@@ -16,7 +16,7 @@
 }
 
 .card img {
-  width: 320px;
+  width: 240px;
   height: 260px;
 }
 
