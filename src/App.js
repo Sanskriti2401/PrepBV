@@ -1,8 +1,9 @@
 import Home from "./components/home/home";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Login from "./components/login/login";
-import Practice from "./components/Practice/practice";
-import topicDetails from "./components/Practice/topicDetails";
+import Connect from "./components/ConnectWithSenior/connect";
+import Practice from "./components/practice/practice";
+import topicDetails from "./components/practice/topicDetails";
 import Nav from "./components/nav/nav";
 function createCard(topicDetails) {
   return (
