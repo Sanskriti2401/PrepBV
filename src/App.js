@@ -8,7 +8,7 @@ import SignupPage from "./components/signup/SignupPage";
 function App() {
   return (
     <div className="App">
-      <SignupPage />
+      <Home />
       
     </div>
   );
