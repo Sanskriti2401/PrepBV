@@ -6,7 +6,7 @@ function Practice(props)
 return <>
   
 <div>
-    <div className="card">
+    <div className="card-practice">
       <h1>{props.TopicName}</h1>
       <button className="solveButton">Solve Now</button>
       <p className="qcount">Total questions: {props.QCount}</p>

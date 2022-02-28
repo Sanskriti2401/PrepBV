@@ -18,8 +18,8 @@ function createCard(topicDetails)
 function App() {
   return (
     <div className="App">
-       <Nav/>
-      {topicDetails.map(createCard)}
+     
+    <Home/>
     </div>
   );
 }
