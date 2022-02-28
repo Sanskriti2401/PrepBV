@@ -2,6 +2,7 @@ import React from "react";
 import "./nav.css";
 import b from "../../images/logo.jpeg";
 import Avatar from "@material-ui/core/Avatar";
+import { Link } from "react-router-dom";
 
 export default function Nav() {
   return (
@@ -11,19 +12,19 @@ export default function Nav() {
 
         <ul className="option">
           <li>
-            <a href="#">Home</a>
+            <Link to="/">Home</Link>
           </li>
           <li>
-            <a href="#">Practice questions</a>
+            <Link to="/practice">Practice questions</Link>
           </li>
           <li>
-            <a href="#">Post</a>
+            <Link to="/post">Post</Link>
           </li>
           <li>
-            <a href="#">Interview Experience</a>
+            <Link to="/interview">Interview Experience</Link>
           </li>
           <li>
-            <a href="#">Connect with Seniors</a>
+            <Link to="/connect">Connect with Seniors</Link>
           </li>
           <li className="profile">
             <Avatar
@@ -32,13 +33,13 @@ export default function Nav() {
             />
             <ul class="menu">
               <li className="menu-content">
-                <a href="#">Edit Profile</a>
+                <Link to="edit">Edit Profile</Link>
               </li>
               <li className="menu-content">
-                <a href="#">Bookmarked</a>
+                <Link to="bookmark">Bookmarked</Link>
               </li>
               <li className="menu-content">
-                <a href="#">Log out</a>
+                <Link to="#">Log out</Link>
               </li>
             </ul>
           </li>
