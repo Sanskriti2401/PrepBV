@@ -6,9 +6,14 @@ import Card from "./card";
 import company from "./company";
 import Footer from "./footer";
 import Slider from "./slider";
+import { Link } from "react-router-dom";
 
 function createcard(company) {
-  return <Card key={company.id} img={company.url} />;
+  return (
+    <Card key={company.id} img={company.url} keyName={company.keyName}>
+      
+    </Card>
+  );
 }
 
 export default function Home() {
