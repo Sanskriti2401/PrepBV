@@ -23,11 +23,18 @@
   height:200px;
 }
 
-.card p {
-  font-size: 35px;
+.card-button {
+  margin: 6% 10% 3% 10%;
+  padding: 3%;
+  background: transparent;
+  border: 3px solid #4fd3c4;
+  font-weight: bold;
+  font-size: 25px;
   font-family: "Arial, Helvetica, sans-serif";
-  text-align: center;
-  margin-top: 20px;
-  color: #058391;
-  font-weight: 600;
+  color: #4fd3c4;
+}
+
+.card-button:hover {
+  background-color: #4fd3c4;
+  color: whitesmoke;
 }
