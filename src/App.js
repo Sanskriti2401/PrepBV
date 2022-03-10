@@ -5,7 +5,7 @@ import Connect from "./components/ConnectWithSenior/connect";
 import Prac from "./components/practice/prac";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import SignUpPage from "./components/signup/SignupPage";
-import Gs from "./components/home/company/gs";
+//import Gs from "./components/home/company/gs";
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
           <Route exact path="/practice" element={<Prac />} />
           <Route exact path="/connect" element={<Connect />} />
           <Route exact path="/login" element={<Login />} />
-          <Route exact path="/gs" element={<Gs />} />
+          {/*<Route exact path="/gs" element={<Gs />} />*/}
           <Route exact path="/flip" element={<SignUpPage />} />
           <Route exact path="/barclays" element={<SignUpPage />} />
           <Route exact path="/signup" element={<SignUpPage />} />

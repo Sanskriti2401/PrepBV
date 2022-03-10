@@ -4,7 +4,7 @@ const topicDetails=[
         topicName: "Array",
         qCount: "20",
         percentdone: "20"
-    },
+    }, 
     {
         id:"2",
         topicName:"Strings",
