@@ -22,15 +22,15 @@ const FormSignup = ({ submitForm }) => {
         <div className="form-inputs">
           <label className="form-label">Name:</label>
           <input
-            id="username"
+            id="name"
             type="text"
-            name="username"
+            name="name"
             className="form-input"
             placeholder="Enter your name"
-            value={values.username}
+            value={values.name}
             onChange={handleChange}
           />
-          {errors.username && <p>{errors.username}</p>}
+          {errors.name && <p>{errors.name}</p>}
         </div>
         <div className="form-inputs">
           <label className="form-label">Email:</label>
@@ -46,33 +46,31 @@ const FormSignup = ({ submitForm }) => {
           {errors.email && <p>{errors.email}</p>}
         </div>
         <div className="form-inputs">
-          <label className="form-label">
-            LinkedIn profile link:
-          </label>
+          <label className="form-label">LinkedIn profile link:</label>
           <input
-            id="linkedin"
+            id="linkedInId"
             type="url"
-            name="linkedin"
+            name="linkedInId"
             className="form-input"
             placeholder="Enter your linkedin"
-            value={values.linkedin}
+            value={values.linkedInId}
             onChange={handleChange}
           />
-          {errors.linkedin && <p>{errors.linkedin}</p>}
+          {errors.linkedInId && <p>{errors.linkedInId}</p>}
         </div>
 
         <div className="form-inputs">
           <label className="form-label">Github profile link:</label>
           <input
-            id="github"
+            id="githubId"
             type="url"
-            name="github"
+            name="githubId"
             className="form-input"
             placeholder="Enter your github"
-            value={values.github}
+            value={values.githubId}
             onChange={handleChange}
           />
-          {errors.github && <p>{errors.github}</p>}
+          {errors.githubId && <p>{errors.githubId}</p>}
         </div>
 
         <div className="form-inputs">
@@ -91,15 +89,15 @@ const FormSignup = ({ submitForm }) => {
         <div className="form-inputs">
           <label className="form-label">Confirm your password:</label>
           <input
-            id="password2"
+            id="cpassword"
             type="password"
-            name="password2"
+            name="cpassword"
             className="form-input"
             placeholder="Confirm your password"
-            value={values.password2}
+            value={values.cpassword}
             onChange={handleChange}
           />
-          {errors.password2 && <p>{errors.password2}</p>}
+          {errors.cpassword && <p>{errors.cpassword}</p>}
         </div>
         <button className="form-input-btn" type="submit">
           Sign Up

@@ -1,8 +1,8 @@
 export default function validateInfo(values) {
   let errors = {};
   //Checking Conditions for username
-  if (!values.username.trim()) {
-    errors.username = "Username required";
+  if (!values.name.trim()) {
+    errors.name = "Username required";
   }
   //Checking conditions for email
   if (!values.email) {
@@ -11,14 +11,12 @@ export default function validateInfo(values) {
     errors.email = "Email address in invalid";
   }
 
-  if (!values.linkedin)
-  {
-    errors.linkedin= "URL required";
+  if (!values.linkedInId) {
+    errors.linkedInId = "URL required";
   }
 
-  if (!values.github)
-  {
-    errors.github= "URL required";
+  if (!values.githubId) {
+    errors.githubId = "URL required";
   }
   if (!values.password) {
     errors.password = "Password is required";
@@ -26,10 +24,10 @@ export default function validateInfo(values) {
     errors.password = "Password must be 6 characters or more!";
   }
 
-  if (!values.password2) {
-    errors.password2 = "Password is required";
-  } else if (values.password2 !== values.password) {
-    errors.password2 = "Passwords do not match";
+  if (!values.cpassword) {
+    errors.cpassword = "Password is required";
+  } else if (values.cpassword !== values.password) {
+    errors.cpassword = "Passwords do not match";
   }
 
   return errors;
