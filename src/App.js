@@ -12,7 +12,15 @@ import Amex from "./components/home/company/amex";
 import Cisco from "./components/home/company/cisco";
 import Oracle from "./components/home/company/oracle";
 import Barclays from "./components/home/company/barclays";
-
+import Array from "./components/practice/topic/array";
+import Backtracking from "./components/practice/topic/backtracking";
+import Bst from "./components/practice/topic/bst";
+import Graph from "./components/practice/topic/graph";
+import Heap from "./components/practice/topic/heap";
+import Linkedlist from "./components/practice/topic/linkedlist";
+import Sorting from "./components/practice/topic/sorting";
+import Stack from "./components/practice/topic/stack";
+import String from "./components/practice/topic/string";
 function App() {
   return (
     <Router>
@@ -29,7 +37,16 @@ function App() {
           <Route exact path="/cisco" element={<Cisco />} />
           <Route exact path="/oracle" element={<Oracle />} />
           <Route exact path="/barclays" element={<Barclays />} />
-        </Routes>
+          <Route exact path="/array" element={<Array />} />
+          <Route exact path="/strings" element={<String />} />
+          <Route exact path="/linkedlist" element={<Linkedlist />} />
+          <Route exact path="/stack" element={<Stack />} />
+          <Route exact path="/sorting" element={<Sorting />} />
+          <Route exact path="/heap" element={<Heap />} />
+          <Route exact path="/graph" element={<Graph />} />
+          <Route exact path="/bst" element={<Bst />} />
+          <Route exact path="/backtracking" element={<Backtracking />} />
+    </Routes>
       </div>
     </Router>
   );

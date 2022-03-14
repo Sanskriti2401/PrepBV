@@ -11,6 +11,7 @@ function createCard(topicDetails) {
         TopicName={topicDetails.topicName}
         QCount={topicDetails.qCount}
         percentdone={topicDetails.percentdone}
+        routes={topicDetails.routes}
       />
     </>
   );
