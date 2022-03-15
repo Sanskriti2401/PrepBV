@@ -18,5 +18,8 @@
     "http": "^0.0.1-security",
     "md4": "0.0.33",
     "mongoose": "^6.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
   }
 }
