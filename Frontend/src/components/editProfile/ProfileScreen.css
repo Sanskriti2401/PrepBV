@@ -1,14 +1,21 @@
-.img-component{
-    display: flex;
-    justify-content: center;
-    margin: 80px;
-    width:30%
+.profile-content-left{
+    background: #b5eaea 100%;
+    /*border-radius: 10px 0 0 10px;*/
+    position: relative;
+    width: 400px;
+    height: 543px;
+    align-items: center;
+    text-align: center;
 }
-
-.circle-img {
-
+.imgdiv{
+    align-items: center;
+}
+.profile-content-left img{
+    width: 200px;
+    height: 180px;
     border-radius: 50%;
-    border: 6px solid #bae5e5;
-    width: 60%;
-    
-  }
+    margin-top: 75px;
+ }
+ .profilepic{
+     margin-top: 25px;
+ }

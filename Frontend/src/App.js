@@ -21,6 +21,8 @@ import Linkedlist from "./components/practice/topic/linkedlist";
 import Sorting from "./components/practice/topic/sorting";
 import Stack from "./components/practice/topic/stack";
 import String from "./components/practice/topic/string";
+import ProfileScreen from "./components/editProfile/ProfileScreen";
+
 function App() {
   return (
     <Router>
@@ -46,7 +48,8 @@ function App() {
           <Route exact path="/graph" element={<Graph />} />
           <Route exact path="/bst" element={<Bst />} />
           <Route exact path="/backtracking" element={<Backtracking />} />
-    </Routes>
+          <Route exact path="/edit" element={<ProfileScreen/>} />
+        </Routes>
       </div>
     </Router>
   );
