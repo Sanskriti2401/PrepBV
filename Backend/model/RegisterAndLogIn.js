@@ -1,6 +1,7 @@
 import { ApplicationCrudModel } from ".";
 import bcrypt from "bcrypt";
 import { SALT_ROUNDS } from "../config/configData";
+import isEmptyObject from "../helper/isObjectEmpty";
 
 const Credentials = {
   register,
@@ -10,7 +11,7 @@ const Credentials = {
 async function register(attrs) {
   const { password, email, cpassword } = attrs;
   const application = await ApplicationCrudModel.findByEmail(email);
-  if (!application.length === 0) {
+  if (!isEmptyObject(application)) {
     console.log("Duplicate UserName");
     return {
       application,
