@@ -171,3 +171,22 @@
     color: #27cdff;
     font-weight: 800;
   }
+  .form-input-error {
+    display: block;
+    padding-left: 10px;
+    outline: none;
+    border-radius: 2px;
+    height: 40px;
+    width: 10px;
+    border: none;
+  }
+ .form-inputs> input[type=text] {
+    width: 100%;
+    border: none;
+    padding-left: 10px;
+  }
+  .form-inputs> input[type=password] {
+    width: 100%;
+    border: none;
+    padding-left: 10px;
+  }
