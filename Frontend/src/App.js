@@ -2,6 +2,7 @@ import "./App.css";
 import Home from "./components/home/home";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Login from "./components/login/login";
+import Post from "./components/post/post";
 import Connect from "./components/ConnectWithSenior/connect";
 import Prac from "./components/practice/prac";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -33,6 +34,7 @@ function App() {
           <Route exact path="/connect" element={<Connect />} />
           <Route exact path="/signup" element={<SignUpPage />} />
           <Route exact path="/login" element={<Login />} />
+          <Route exact path="/post" element={<Post />} />
           <Route exact path="/gs" element={<Gs />} />
           <Route exact path="/flip" element={<Flip />} />
           <Route exact path="/amex" element={<Amex />} />
