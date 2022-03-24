@@ -21,7 +21,7 @@ export default function Login() {
                     <div className="login-text">
                         <h3>Login</h3>
                         <p className="login-user">New User?</p>
-                        <p className="login-signup">Sign Up</p>
+                        <p className="login-signup"><a href="./signup">Sign Up</a></p>
                         <hr className="login-hr"></hr>
                         <LoginBasic />
                     </div>
