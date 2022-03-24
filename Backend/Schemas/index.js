@@ -1,2 +1,3 @@
 import ApplicationSchema from './Application'
-export { ApplicationSchema }
+import PostSchema from './Post'
+export { ApplicationSchema, PostSchema }
