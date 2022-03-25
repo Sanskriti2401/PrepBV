@@ -18,6 +18,13 @@ async function register(attrs) {
       message: "Account Creation Failed due to duplicate email",
     };
   }
+  if(password.length<6) {
+    console.log("Not more than 6 characters");
+    return {
+      application,
+      message: "Account Creation Failed due to length of password",
+    };
+  }
   console.log(attrs);
   if (password === cpassword) {
     const hash = bcrypt.hashSync(password.toString(), 10);
