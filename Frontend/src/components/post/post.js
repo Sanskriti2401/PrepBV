@@ -39,6 +39,7 @@ export default function Post() {
 
     event.preventDefault();
     console.log(inputs);
+    setInputs(() => ({ inputs,title: "", inputs,content: "" }));
   };
 
 
