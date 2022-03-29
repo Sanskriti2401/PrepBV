@@ -31,7 +31,7 @@ export default function Nav() {
               alt="profile"
               src="https://write.geeksforgeeks.org/static/media/Group%20210.08204759.svg"
             />
-            <ul class="menu">
+            <ul className="menu">
               <li className="menu-content">
                 <Link to="edit">Edit Profile</Link>
               </li>
