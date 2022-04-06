@@ -2,13 +2,14 @@ import React from "react";
 import { useState, useEffect } from "react";
 import Checkbox from "./Checkbox";
 import "./questions.css";
+import Nav from "../../nav/nav";
   export default function Heap()
    {
    const [getData, getSetData] = useState([])
     const [loading, setLoading] = useState(true)
     const fetchData = async () => {
         try{
-          await fetch("http://localhost:8000/QuestionSet/Sorting").then(res => res.json())
+          await fetch("http://localhost:8000/QuestionSet/Searching & Sorting").then(res => res.json())
           .then((data) => {
             const {requiredData}=data
             getSetData(requiredData)
@@ -26,6 +27,7 @@ import "./questions.css";
     
     return (
         <div>
+          <Nav />
         <div className="topic-heading">
         <h1 >Sorting</h1>
         </div>

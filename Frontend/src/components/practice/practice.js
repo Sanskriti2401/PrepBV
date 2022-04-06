@@ -6,6 +6,7 @@ function Practice(props) {
   const navigate = useNavigate();
   return (
     <>
+
       <div>
         <div className="practice-card">
           <h3>{props.TopicName}</h3>
