@@ -12,7 +12,7 @@ export default function Nav() {
 
         <ul className="option">
           <li>
-            <Link to="/home">Home</Link>
+            <Link to="/">Home</Link>
           </li>
           <li>
             <Link to="/practice">Practice questions</Link>
@@ -33,10 +33,10 @@ export default function Nav() {
             />
             <ul className="menu">
               <li className="menu-content">
-                <Link to="edit">Edit Profile</Link>
+                <Link to="/edit">Edit Profile</Link>
               </li>
               <li className="menu-content">
-                <Link to="bookmark">Bookmarked</Link>
+                <Link to="/bookmark">Bookmarked</Link>
               </li>
               <li className="menu-content">
                 <Link to="#">Log out</Link>
