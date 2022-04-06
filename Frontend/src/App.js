@@ -23,6 +23,7 @@ import Sorting from "./components/practice/topic/sorting";
 import Stack from "./components/practice/topic/stack";
 import String from "./components/practice/topic/string";
 import ProfileScreen from "./components/editProfile/ProfileScreen";
+import Interview from "./components/interview/interview";
 
 function App() {
   return (
@@ -50,7 +51,8 @@ function App() {
           <Route exact path="/graph" element={<Graph />} />
           <Route exact path="/bst" element={<Bst />} />
           <Route exact path="/backtracking" element={<Backtracking />} />
-          <Route exact path="/edit" element={<ProfileScreen/>} />
+          <Route exact path="/edit" element={<ProfileScreen />} />
+          <Route exact path="/interview" element={<Interview />} />
         </Routes>
       </div>
     </Router>

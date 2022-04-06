@@ -2,8 +2,29 @@ import React from "react";
 import Nav from "../../nav/nav";
 import bar from "../../../images/bar.jpg";
 import "./company.css";
+import Checkbox from "../../practice/topic/Checkbox";
+import { useState, useEffect } from "react";
 
 function Barclays() {
+  const [getData, getSetData] = useState([])
+  const [loading, setLoading] = useState(true)
+  const fetchData = async () => {
+      try{
+        await fetch("http://localhost:8000/QuestionSet/Barclays").then(res => res.json())
+        .then((data) => {
+          const {requiredData}=data
+          getSetData(requiredData)
+          console.log(requiredData)
+          setLoading(false)
+        })
+      } catch(err){
+      console.log(err)
+      }
+  }
+  
+  useEffect(() => {
+  fetchData()
+  }, [])
   return (
     <div>
       <Nav />
@@ -50,6 +71,12 @@ function Barclays() {
       </div>
       <div className="question-heading">
         <h1>Questions</h1>
+        {getData.map((todo) => (
+        <div className="question-list">
+          <Checkbox />
+          <a href={todo.URL}>{todo.Problem}</a>
+        </div>
+      ))}
 
       </div>
     </div>

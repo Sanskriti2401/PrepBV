@@ -2,9 +2,31 @@ import React from "react";
 import Nav from "../../nav/nav";
 import gs from "../../../images/gs.png";
 import "./company.css";
-import company from "../company";
+import Checkbox from "../../practice/topic/Checkbox";
+import { useState, useEffect } from "react";
+
 
 function Gs() {
+
+  const [getData, getSetData] = useState([])
+  const [loading, setLoading] = useState(true)
+  const fetchData = async () => {
+      try{
+        await fetch("http://localhost:8000/QuestionSet/GS").then(res => res.json())
+        .then((data) => {
+          const {requiredData}=data
+          getSetData(requiredData)
+          console.log(requiredData)
+          setLoading(false)
+        })
+      } catch(err){
+      console.log(err)
+      }
+  }
+  
+  useEffect(() => {
+  fetchData()
+  }, [])
   return (
    
     <div>
@@ -50,6 +72,12 @@ function Gs() {
 
       <div className="question-heading">
         <h1>Questions</h1>
+        {getData.map((todo) => (
+        <div className="question-list">
+          <Checkbox />
+          <a href={todo.URL}>{todo.Problem}</a>
+        </div>
+      ))}
 
       </div>
     </div>
