@@ -7,8 +7,10 @@ import company from "./company";
 import Footer from "./footer";
 import Slider from "./slider";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function createcard(company) {
+  const navigate = useNavigate();
   return (
     <Card key={company.id} img={company.url} keyName={company.keyName}>
       
@@ -30,7 +32,9 @@ export default function Home() {
             <p>Let's Crack It Together!!</p>
           </div>
 
-          <button className="button">Get Started</button>
+          <a href="./practice"><button  className ="button"   >
+            Get Started</button>
+            </a>
         </div>
 
         <img className="img" src={a} alt="image" />
