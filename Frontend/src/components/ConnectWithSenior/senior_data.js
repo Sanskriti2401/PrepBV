@@ -31,84 +31,84 @@ const detail = [
         id: 5,
         branch: "IT",
         year: "3",
-        name: "Mansi Gupta",
+        name: "Monika Sharma",
         url: "https://www.linkedin.com/in/themansigupta/"
     },
     {
         id: 6,
         branch: "IT",
         year: "3",
-        name: "Ananya Gupta",
+        name: "Shitija Tiwari",
         url: "https://www.linkedin.com/in/ananya-gupta05/"
     },
     {
         id: 7,
         branch: "IT",
         year: "4",
-        name: "Pritha Tiwari",
+        name: "Surbhi Rathi",
         url: "https://www.linkedin.com/in/pritha-tiwari-1b634a179/"
     },
     {
         id: 8,
         branch: "IT",
         year: "4",
-        name: "Tanya Bharadwaj",
+        name: "Palak Mudgal",
         url: "https://www.linkedin.com/in/tanya-bhardwaj-5810671aa/"
     },
     {
         id: 9,
         branch: "EC",
         year: "3",
-        name: "Mansi Gupta",
+        name: "Snigdha Shukla",
         url: "https://www.linkedin.com/in/themansigupta/"
     },
     {
         id: 10,
         branch: "EC",
         year: "4",
-        name: "Ananya Gupta",
+        name: "Vaishnavi Kumari",
         url: "https://www.linkedin.com/in/ananya-gupta05/"
     },
     {
         id: 11,
         branch: "EC",
         year: "3",
-        name: "Pritha Tiwari",
+        name: "Garima Agarwal",
         url: "https://www.linkedin.com/in/pritha-tiwari-1b634a179/"
     },
     {
         id: 12,
         branch: "EC",
         year: "4",
-        name: "Tanya Bharadwaj",
+        name: "Sonalika Malhotra",
         url: "https://www.linkedin.com/in/tanya-bhardwaj-5810671aa/"
     },
     {
         id: 13,
         branch: "EE",
         year: "3",
-        name: "Mansi Gupta",
+        name: "Niharika Gupta",
         url: "https://www.linkedin.com/in/themansigupta/"
     },
     {
         id: 14,
         branch: "EE",
         year: "3",
-        name: "Ananya Gupta",
+        name: "Dorthy",
         url: "https://www.linkedin.com/in/ananya-gupta05/"
     },
     {
         id: 15,
         branch: "EE",
         year: "3",
-        name: "Pritha Tiwari",
+        name: "Gauri Sharma",
         url: "https://www.linkedin.com/in/pritha-tiwari-1b634a179/"
     },
     {
         id: 16,
         branch: "EE",
         year: "3",
-        name: "Tanya Bharadwaj",
+        name: "Ayushi Sharma",
         url: "https://www.linkedin.com/in/tanya-bhardwaj-5810671aa/"
     }
 ]
