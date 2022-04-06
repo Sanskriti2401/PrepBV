@@ -12,7 +12,7 @@ export default function Nav() {
 
         <ul className="option">
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/home">Home</Link>
           </li>
           <li>
             <Link to="/practice">Practice questions</Link>
