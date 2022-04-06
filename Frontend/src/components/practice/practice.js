@@ -8,7 +8,7 @@ function Practice(props) {
     <>
       <div>
         <div className="practice-card">
-          <h1>{props.TopicName}</h1>
+          <h3>{props.TopicName}</h3>
           <button
         className="solveButton"
         onClick={() => {

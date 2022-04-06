@@ -1,11 +1,41 @@
 import React from "react";
-import Nav from "../../nav/nav";
-  export default function Array() {
+import { useState, useEffect } from "react";
+import Checkbox from "./Checkbox";
+import "./questions.css";
+  export default function Bst()
+   {
+   const [getData, getSetData] = useState([])
+    const [loading, setLoading] = useState(true)
+    const fetchData = async () => {
+        try{
+          await fetch("http://localhost:8000/QuestionSet/Bst").then(res => res.json())
+          .then((data) => {
+            const {requiredData}=data
+            getSetData(requiredData)
+            console.log(requiredData)
+            setLoading(false)
+          })
+        } catch(err){
+        console.log(err)
+        }
+    }
+    
+    useEffect(() => {
+    fetchData()
+    }, [])
+    
     return (
-      <div>
-        <Nav />
-        <h1>Hello</h1>
-      </div>
-    );
+        <div>
+        <div className="topic-heading">
+        <h1 >Binary Search Tree</h1>
+        </div>
+        {getData.map((todo) => (
+          <div className="question-info">
+         <Checkbox />
+            <a href={todo.URL}>{todo.Problem}</a>
+          </div>
+        ))}
+        </div>
+    )
+    
   }
-  
