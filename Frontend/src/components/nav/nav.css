@@ -67,7 +67,7 @@
   background-color: #000000;
   list-style-type: none;
   padding: 0;
-  position: absolute;
+  position:absolute;
   visibility: hidden;
 }
 

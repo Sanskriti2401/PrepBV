@@ -8,7 +8,7 @@ import "./questions.css";
     const [loading, setLoading] = useState(true)
     const fetchData = async () => {
         try{
-          await fetch("http://localhost:8000/QuestionSet/Linkedlist").then(res => res.json())
+          await fetch("http://localhost:8000/QuestionSet/LinkedList").then(res => res.json())
           .then((data) => {
             const {requiredData}=data
             getSetData(requiredData)

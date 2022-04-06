@@ -13,10 +13,10 @@ export default function Connect() {
         <>
             <Nav />
             <div className="connect">
-                <div className="connect-stick">
-                    <div className="connect-bg"></div>
+                    <div className="connect-bg">   
                     <div className="connect-img">
                         <img src={img1} alt="Error" />
+                    </div>
                     </div>
                     <div className="connect-text" >
                         <h1>Connect With Seniors</h1>
@@ -25,9 +25,8 @@ export default function Connect() {
                     </div>
                     <p className="connect-slogan">Let's connect and grow!</p>
                 </div>
+                
                 <SearchBar />
-
-            </div>
         </>
     );
 }
