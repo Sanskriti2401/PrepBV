@@ -48,12 +48,13 @@ export default function Post() {
       <Nav />
       <div className="post-component">
         <div className="post-static">
-          <div className="post-bg"></div>
+          <div className="post-bg">
           <div className="post-text">
             <h1>Post your interview experience here</h1>
           </div>
           <div className="post-img">
             <img src={img} alt="Error" />
+          </div>
           </div>
         </div>
         <div className='post-write'>

@@ -5,7 +5,6 @@
     background-color: #b5eaea;
     height: 50%;
     width: 100%;
-    position: absolute;
     left: 0%;
     /* top: 0%; */
 }
@@ -17,6 +16,9 @@
 }
 
 .connect-search input {
+    
+    position:relative;
+    top:-17vh;
     font-size: 100%;
     padding: 8px;
     width: 32%;
@@ -39,8 +41,8 @@
 } 
 
 .connect-img > img {
-    height: 400px;
-    width: 420px;
+    height: 200px;
+    width: 220px;
     position: relative;
     top: 12vh;
     left: 70%;
@@ -56,6 +58,7 @@
 
 .connect-text > h1 {
     font-size: 260%;
+    padding-top: 60px;
 }
 
 .connect-para {
@@ -65,7 +68,7 @@
 
 .connect-slogan {
     position: relative;
-    top: -25vh;
+    top: -30vh;
     left: 6%;
     color: #43f014;
     font-size: 150%;
