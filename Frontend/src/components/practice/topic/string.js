@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import Checkbox from "./Checkbox";
 import "./questions.css";
+import Nav from "../../nav/nav";
   export default function Heap()
    {
    const [getData, getSetData] = useState([])
@@ -26,6 +27,7 @@ import "./questions.css";
     
     return (
         <div>
+          <Nav />
         <div className="topic-heading">
         <h1 >String</h1>
         </div>

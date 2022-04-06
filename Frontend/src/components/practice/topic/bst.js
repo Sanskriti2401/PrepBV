@@ -2,6 +2,8 @@ import React from "react";
 import { useState, useEffect } from "react";
 import Checkbox from "./Checkbox";
 import "./questions.css";
+import Nav from "../../nav/nav";
+
   export default function Bst()
    {
    const [getData, getSetData] = useState([])
@@ -26,6 +28,7 @@ import "./questions.css";
     
     return (
         <div>
+          <Nav />
         <div className="topic-heading">
         <h1 >Binary Search Tree</h1>
         </div>
