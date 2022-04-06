@@ -30,11 +30,11 @@ function App() {
     <Router>
       <div>
         <Routes>
-          <Route exact path="/" element={<Login />} />
+          <Route exact path="/" element={<Home />} />
           <Route exact path="/practice" element={<Prac />} />
           <Route exact path="/connect" element={<Connect />} />
           <Route exact path="/signup" element={<SignUpPage />} />
-          <Route exact path="/home" element={<Home />} />
+          <Route exact path="/login" element={<Login />} />
           <Route exact path="/post" element={<Post />} />
           <Route exact path="/gs" element={<Gs />} />
           <Route exact path="/flip" element={<Flip />} />

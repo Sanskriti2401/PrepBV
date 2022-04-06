@@ -60,7 +60,7 @@ export default function LoginBasic() {
       console.log(" after message: " + isSubmitted);
       console.log("status: " + isSubmitted + " " + isClicked);
       {
-        isClicked ? (isSubmitted ? navigate("/home") : alert('Invalid Credentials!')) : navigate("/")
+        isClicked ? (isSubmitted ? navigate("/") : alert('Invalid Credentials!')) : navigate("/login")
         // isSubmitted ? navigate("/home") : alert('Invalid Credentials!')
       }
       return() => {

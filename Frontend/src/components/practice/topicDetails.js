@@ -15,9 +15,9 @@ const topicDetails=[
     },
     {
         id:"3",
-        topicName:"LinkedLists",
+        topicName:"Linkedlist",
         qCount:"10",
-        routes: "linkedlists",
+        routes: "linkedlist",
         percentdone: "20"
     },
     {
@@ -29,7 +29,7 @@ const topicDetails=[
     },
     {
         id:"5",
-        topicName:"BST",
+        topicName:"Bst",
         qCount:"15",
         routes: "bst",
         percentdone: "20"
@@ -43,23 +43,23 @@ const topicDetails=[
     },
     {
         id:"7",
-        topicName:"Stacks",
+        topicName:"Stack",
         qCount:"20",
-        routes: "stacks",
+        routes: "stack",
         percentdone: "50"
     },
     {
         id:"8",
-        topicName:"Heaps",
+        topicName:"Heap",
         qCount:"15",
-        routes: "heaps",
+        routes: "heap",
         percentdone: "30"
     },
     {
         id:"9",
-        topicName:"Graphs",
+        topicName:"Graph",
         qCount:"10",
-        routes: "graphs",
+        routes: "graph",
         percentdone: "40"
     }
 ];
