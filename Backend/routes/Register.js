@@ -7,11 +7,12 @@ const RegisterLoginRouter = new Express.Router()
 
 const { register, logIn } = ApplicationController
 const { question, questionSet}= QuestionController
-const { post_c } = PostController
+const { post_c ,interview} = PostController
 RegisterLoginRouter.post('/Register', register)
 RegisterLoginRouter.post('/LogIn', logIn)
 RegisterLoginRouter.post('/Question', question)
 RegisterLoginRouter.get('/QuestionSet/:id', questionSet)
+RegisterLoginRouter.get('/interview', interview)
 RegisterLoginRouter.post('/Post', post_c)
 
-export default RegisterLoginRouter
+export default RegisterLoginRouter;

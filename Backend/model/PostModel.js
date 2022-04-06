@@ -4,7 +4,7 @@ import PostSchema from "../Schemas/Post";
 const Post = mongoose.model("Post", PostSchema);
 
 const PostCrudModel = {
-  create
+  create, interview
 };
 
 async function create(attrs) {
@@ -13,4 +13,10 @@ async function create(attrs) {
   return entry;
 }
 
+async function interview() {
+  const application = await Post.find({});
+  console.log(application)
+  console.log("fetched");
+  return application;
+}
 export default PostCrudModel;

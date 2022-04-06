@@ -2,7 +2,7 @@
 import { PostCrudModel } from ".";
 
 const PostDetails = {
-  post_c
+  post_c,interview
 };
 
 async function post_c(attrs) {
@@ -16,6 +16,18 @@ async function post_c(attrs) {
   }
   return {
     message: "Empty experience can't be published",
+  };
+}
+
+async function interview() {
+ // console.log(body);
+  
+  const application = await PostCrudModel.interview();
+  console.log(application);
+  
+  return {
+    application,
+    message: "Posts fetched",
   };
 }
 

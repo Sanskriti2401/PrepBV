@@ -10,7 +10,9 @@ const ApplicationCrudModel = {
   findByEmail,
   searchUsers,
   createQuestionSet,
-  questionSet
+  questionSet,
+  
+  
 };
 
 async function create(attrs) {
@@ -44,5 +46,7 @@ async function questionSet() {
   console.log("Questions fetched");
   return application;
 }
+
+
 
 export default ApplicationCrudModel;
