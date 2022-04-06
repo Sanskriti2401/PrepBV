@@ -29,7 +29,7 @@ export default function Nav() {
           <li className="profile">
             <Avatar
               alt="profile"
-              src="https://write.geeksforgeeks.org/static/media/Group%20210.08204759.svg"
+              src="https://www.kindpng.com/picc/m/78-785827_user-profile-avatar-login-account-male-user-icon.png"
             />
             <ul className="menu">
               <li className="menu-content">
