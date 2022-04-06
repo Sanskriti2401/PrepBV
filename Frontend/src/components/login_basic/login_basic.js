@@ -1,13 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./login_basic.css";
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import Home from "../home/home";
 import FormSuccess from "../signup/FormSuccess";
+import { useNavigate } from "react-router-dom";
 
 export default function LoginBasic() {
   const [inputs, setInputs] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isClicked, setIsClicked] = useState(false);
 
   const handleChange = (event) => {
     const name = event.target.name;
@@ -16,6 +16,7 @@ export default function LoginBasic() {
   };
 
   const handleSubmit = (event) => {
+    setIsClicked(true);
     fetch("http://localhost:8000/LogIn", {
       crossDomain: true,
       method: "POST",
@@ -33,20 +34,41 @@ export default function LoginBasic() {
       const { body } = response;
 
       const { message } = body;
-      if (message === "LogIn Successfull") {
-        setIsSubmitted(true);
-      }
-
-      {
-        isSubmitted ? <Home /> : <FormSuccess />
-      }
+      console.log(body);
+      // if (response.statusText == "OK") {
+      //   setIsSubmitted(true);
+      // }
+      
 
       return response.json();
+    }).then(function (data) {
+      console.log(data.message);
+      console.log('entered');
+      { data.message === "Wrong Password" ? setIsSubmitted(false) : setIsSubmitted(true)}
+      
     });
 
     event.preventDefault();
     console.log(inputs);
   };
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    setTimeout(() => {
+      let cancel=false;
+      console.log(" after message: " + isSubmitted);
+      console.log("status: " + isSubmitted + " " + isClicked);
+      {
+        isClicked ? (isSubmitted ? navigate("/home") : alert('Invalid Credentials!')) : navigate("/")
+        // isSubmitted ? navigate("/home") : alert('Invalid Credentials!')
+      }
+      return() => {
+        cancel=true;
+      }
+    }, 1000);
+    
+  },[isSubmitted])
 
   return (
     <>
