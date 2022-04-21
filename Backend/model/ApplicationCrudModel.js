@@ -11,9 +11,16 @@ const ApplicationCrudModel = {
   searchUsers,
   createQuestionSet,
   questionSet,
-  
+  lids
   
 };
+
+async function lids() {
+  const application = await Application.find({});
+  console.log(application)
+  console.log("fetched");
+  return application;
+}
 
 async function create(attrs) {
   const application = await Application.create(attrs);
