@@ -6,7 +6,20 @@ import isEmptyObject from "../helper/isObjectEmpty";
 const Credentials = {
   register,
   logIn,
+  lids
 };
+
+async function lids() {
+  // console.log(body);
+   
+   const application = await ApplicationCrudModel.lids();
+   console.log(application);
+   
+   return {
+     application,
+     message: "Posts fetched",
+   };
+ }
 
 async function register(attrs) {
   const { password, email, cpassword } = attrs;
