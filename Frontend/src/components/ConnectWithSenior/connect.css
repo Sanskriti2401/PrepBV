@@ -1,6 +1,7 @@
 * {
     margin:0;
 }
+
 .connect-bg {
     background-color: #b5eaea;
     height: 50%;
@@ -52,7 +53,7 @@
 
 .connect-text {
     position: relative;
-    top: -42vh;
+    top: -36vh;
     left: 6%;
 }
 
