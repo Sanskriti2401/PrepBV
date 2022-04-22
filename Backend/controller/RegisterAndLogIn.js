@@ -4,15 +4,7 @@ import { Credentials } from "../model";
 const ApplicationController = {
   register,
   logIn,
-  lids
 };
-
-async function lids(req, res, next) {
-  const { body } = req;
-  const data = await Credentials.lids(body);
-  console.log(data);
-  return res.send(data);
-}
 
 async function register(req, res, next) {
   const { body } = req;
