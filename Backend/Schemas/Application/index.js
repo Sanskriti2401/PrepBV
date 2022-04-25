@@ -8,6 +8,7 @@ const ApplicationSchema = new Schema({
   linkedInId: { type: String },
   githubId: { type: String },
   year: { type: String },
-  branch: { type: String }
+  branch: { type: String },
+  bookmark: { type: Array }
 })
 export default ApplicationSchema
