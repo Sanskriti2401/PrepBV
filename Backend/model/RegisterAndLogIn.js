@@ -23,7 +23,7 @@ async function lids() {
 
 async function register(attrs) {
   const { id, email } = attrs;
-  if (isEmptyObject(id)) {
+  if (id!=null) {
     const app=await ApplicationCrudModel.append(id,email);
     const application = await ApplicationCrudModel.findByEmail(email);
     return {
