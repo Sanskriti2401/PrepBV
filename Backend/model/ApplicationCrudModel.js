@@ -11,6 +11,7 @@ const ApplicationCrudModel = {
   searchUsers,
   createQuestionSet,
   questionSet,
+  append,
   lids
   
 };
@@ -23,9 +24,23 @@ async function lids() {
 }
 
 async function create(attrs) {
+  attrs.bookmark=[];
   const application = await Application.create(attrs);
   console.log("Creation Completed");
   return application;
+}
+
+async function append(id,email) {
+  const application = await Application.findOne({ email });
+  // const res = await Application.updateOne({ email: email }, { bookmark: id });
+  // const application = await Application.create(attrs);
+  if(!application.bookmark.includes(id))
+  {
+    application.bookmark.push(id);
+    await application.save();
+    console.log("Added Successfully!");
+    return application;
+  }
 }
 
 async function findByEmail(email) {

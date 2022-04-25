@@ -8,6 +8,7 @@ export default function LoginBasic() {
   const [inputs, setInputs] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
+  const [user, setUser] = useState('');
 
   const handleChange = (event) => {
     const name = event.target.name;
@@ -29,8 +30,11 @@ export default function LoginBasic() {
         password: inputs.password,
       }),
     }).then(function (response) {
+      console.log('body:');
       console.log(response.body);
-
+      // setUser(response.body);
+      // console.log('user');
+      // console.log(user);
       const { body } = response;
 
       const { message } = body;
@@ -42,7 +46,12 @@ export default function LoginBasic() {
 
       return response.json();
     }).then(function (data) {
-      console.log(data.message);
+      console.log(typeof(data.application.email));
+      const x=data.application.email;
+      console.log('x:' + x);
+      setUser(x);
+      console.log(user);
+      // console.log(data.message);
       console.log('entered');
       { data.message === "Wrong Password" ? setIsSubmitted(false) : setIsSubmitted(true)}
       
@@ -63,6 +72,8 @@ export default function LoginBasic() {
         isClicked ? (isSubmitted ? navigate("/") : alert('Invalid Credentials!')) : navigate("/login")
         // isSubmitted ? navigate("/home") : alert('Invalid Credentials!')
       }
+      console.log('end: ' + user);
+      localStorage.setItem('user', user)
       return() => {
         cancel=true;
       }
