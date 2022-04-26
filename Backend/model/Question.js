@@ -2,6 +2,7 @@ import { ApplicationCrudModel } from ".";
 
 const QuestionSet = {
   question,
+  ques,
   questionSet,
 };
 
@@ -12,6 +13,14 @@ async function question(attrs) {
   return {
     application,
     message: "Question Set created",
+  };
+}
+
+async function ques(attrs) {
+  const application = await ApplicationCrudModel.questionSet();
+  return {
+    application,
+    message: "Questions fetched",
   };
 }
 

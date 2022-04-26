@@ -24,6 +24,7 @@ import Stack from "./components/practice/topic/stack";
 import String from "./components/practice/topic/string";
 import ProfileScreen from "./components/editProfile/ProfileScreen";
 import Interview from "./components/interview/interview";
+import Bookmark from "./components/Bookmark/bookmark";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route exact path="/practice" element={<Prac />} />
+          <Route exact path="/bookmark" element={<Bookmark />} />
           <Route exact path="/connect" element={<Connect />} />
           <Route exact path="/signup" element={<SignUpPage />} />
           <Route exact path="/login" element={<Login />} />
