@@ -12,6 +12,7 @@ const ApplicationCrudModel = {
   createQuestionSet,
   questionSet,
   append,
+  remove,
   lids
   
 };
@@ -39,6 +40,20 @@ async function append(id,email) {
     application.bookmark.push(id);
     await application.save();
     console.log("Added Successfully!");
+    return application;
+  }
+}
+
+async function remove(id,email) {
+  const application = await Application.findOne({ email });
+  // const res = await Application.updateOne({ email: email }, { bookmark: id });
+  // const application = await Application.create(attrs);
+  if(application.bookmark.includes(id))
+  {
+    var index = application.bookmark.indexOf(id);
+    application.bookmark.splice(index,1);
+    await application.save();
+    console.log("Deleted Successfully!");
     return application;
   }
 }

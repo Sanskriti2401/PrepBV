@@ -22,14 +22,24 @@ async function lids() {
 }
 
 async function register(attrs) {
-  const { id, email } = attrs;
-  if (id!=null) {
-    const app=await ApplicationCrudModel.append(id,email);
-    const application = await ApplicationCrudModel.findByEmail(email);
-    return {
-      application,
-      message: "Added!",
-    };
+  const { id, email, flag } = attrs;
+  if (id != null) {
+    if (flag != null) {
+      const app = await ApplicationCrudModel.remove(id, email);
+      const application = await ApplicationCrudModel.findByEmail(email);
+      return {
+        application,
+        message: "Removed!",
+      };
+    }
+    else {
+      const app = await ApplicationCrudModel.append(id, email);
+      const application = await ApplicationCrudModel.findByEmail(email);
+      return {
+        application,
+        message: "Added!",
+      };
+    }
   }
   else {
     const { password, email, cpassword } = attrs;
