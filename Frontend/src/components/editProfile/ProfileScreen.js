@@ -11,17 +11,21 @@ function ProfileScreen() {
   const name = window.localStorage.getItem('name');
   const github = window.localStorage.getItem('github');
   const linkedin = window.localStorage.getItem('linkedin');
-  const myArr = [
-    { linkedInId: linkedin },
-    { GithubId: github },
-    { password: '123456' }
-  ]
+  const myArr = {
+     linkedInId: linkedin ,
+     GithubId: github ,
+     password: '********'
+  }
   const [inputs, setInputs] = useState(myArr);
   const [selectedFile, setselectedFile] = useState();
+  const [change, setChange ] = useState(0);
 
   const handleChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
+    if(name==='password'){
+      setChange(1);
+    }
     setInputs((values) => ({ ...values, [name]: value }));
   };
 
@@ -41,6 +45,7 @@ function ProfileScreen() {
         password: inputs.password,
         linkedInId: inputs.linkedInId,
         GithubId: inputs.GithubId,
+        change: change,
         flag: 1
       }),
     }).then(function (response) {
@@ -70,6 +75,7 @@ function ProfileScreen() {
       {console.log(name)}
       {console.log(inputs.linkedInId)}
       {console.log(inputs.GithubId)}
+      {console.log(inputs.password)}
       <div className="editProfileScreen">
         <div className="profile-content-left">
           <div className="imgdiv">

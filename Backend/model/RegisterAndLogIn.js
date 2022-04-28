@@ -97,8 +97,8 @@ async function logIn(attrs) {
     const pass=attrs.password;
     const hash = bcrypt.hashSync(pass.toString(), 10);
     attrs.password = hash;
-    const {email, password, linkedInId, GithubId}=attrs;
-    const app = await ApplicationCrudModel.edit(email, password, linkedInId, GithubId);
+    const {email, password, linkedInId, GithubId, change}=attrs;
+    const app = await ApplicationCrudModel.edit(email, password, linkedInId, GithubId, change);
     // const application = await ApplicationCrudModel.findByEmail(email);
     console.log('model');
     return {
