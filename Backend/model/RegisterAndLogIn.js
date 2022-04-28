@@ -76,22 +76,38 @@ async function register(attrs) {
 
 async function logIn(attrs) {
   console.log(attrs);
-  const { password: userEnteredPassword, email } = attrs;
-  const application = await ApplicationCrudModel.findByEmail(email);
-  if (application.length === 0) {
-    console.log("Invalid User");
-    return { application, message: "Invalid email" };
+  const { flag } = attrs;
+  if (flag != null) {
+    const pass=attrs.password;
+    const hash = bcrypt.hashSync(pass.toString(), 10);
+    attrs.password = hash;
+    const {email, password, linkedInId, GithubId}=attrs;
+    const app = await ApplicationCrudModel.edit(email, password, linkedInId, GithubId);
+    // const application = await ApplicationCrudModel.findByEmail(email);
+    console.log('model');
+    return {
+      app,
+      message: "Edited",
+    };
   }
-  console.log("Application Log");
-  console.log(application);
-  const { password } = application;
-  console.log(userEnteredPassword + "   " + password);
-  const response = bcrypt.compareSync(userEnteredPassword, password);
-  console.log(response);
-  if (response) {
-    return { application, message: "LogIn Successfull" };
-  } else {
-    return { message: "Wrong Password" };
+  else {
+    const { password: userEnteredPassword, email } = attrs;
+    const application = await ApplicationCrudModel.findByEmail(email);
+    if (application.length === 0) {
+      console.log("Invalid User");
+      return { application, message: "Invalid email" };
+    }
+    console.log("Application Log");
+    console.log(application);
+    const { password } = application;
+    console.log(userEnteredPassword + "   " + password);
+    const response = bcrypt.compareSync(userEnteredPassword, password);
+    console.log(response);
+    if (response) {
+      return { application, message: "LogIn Successfull" };
+    } else {
+      return { message: "Wrong Password" };
+    }
   }
 }
 
