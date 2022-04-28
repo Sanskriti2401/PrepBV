@@ -2,25 +2,88 @@ import Nav from "../nav/nav";
 //import Avatar from "./avatar";
 import UserPic from "../../images/1.png";
 import "./ProfileScreen.css";
+import { useState } from "react";
+
 
 function ProfileScreen() {
-  return(
+
+  const email = window.localStorage.getItem('user');
+  const name = window.localStorage.getItem('name');
+  const github = window.localStorage.getItem('github');
+  const linkedin = window.localStorage.getItem('linkedin');
+  const myArr = [
+    { linkedInId: linkedin },
+    { GithubId: github },
+    { password: '123456' }
+  ]
+  const [inputs, setInputs] = useState(myArr);
+  const [selectedFile, setselectedFile] = useState();
+
+  const handleChange = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
+    setInputs((values) => ({ ...values, [name]: value }));
+  };
+
+  const handleSubmit = (event) => {
+    const email = window.localStorage.getItem('user')
+    console.log(email);
+    console.log(inputs.linkedInId);
+    fetch("http://localhost:8000/login", {
+      crossDomain: true,
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+
+      body: JSON.stringify({
+        email: email,
+        password: inputs.password,
+        linkedInId: inputs.linkedInId,
+        GithubId: inputs.GithubId,
+        flag: 1
+      }),
+    }).then(function (response) {
+      console.log(response.body);
+
+      const { body } = response;
+
+      const { message } = body;
+
+      return response.json();
+    });
+    alert('submitted')
+  };
+
+  const fileSelectedHandler = (event) => {
+    console.log(event.target.files[0]);
+    setselectedFile(event.target.files[0])
+  }
+
+  const fileUploadHandler = (event) => {
+  }
+
+  return (
     <>
-    <Nav />
-  <div className="editProfileScreen"> 
-      <div className="profile-content-left">
-        <div className="imgdiv">
-           <img src={UserPic} alt="Your image" />
-        </div>
-       <div className="profilepic">
+      <Nav />
+      {console.log(email)}
+      {console.log(name)}
+      {console.log(inputs.linkedInId)}
+      {console.log(inputs.GithubId)}
+      <div className="editProfileScreen">
+        <div className="profile-content-left">
+          <div className="imgdiv">
+            <img src={UserPic} alt="Your image" />
+          </div>
+          <div className="profilepic">
             <h5>Update Profile Picture</h5>
-            <input type="text" name="" id="" placeholder="Select Your profile picture" readOnly />
-            <button>+</button>
-       </div>
-      </div>
-    
-      <div className="profile-content-middle">
-        <form className="info-form">
+            <input type="file" name="mypic" id="dp" placeholder="Select Your profile picture" onChange={fileSelectedHandler} readOnly />
+            {/* <button onClick={{fileUploadHandler}}>+</button> */}
+          </div>
+        </div>
+
+        <div className="profile-content-middle">
+          <form className="info-form">
             <div className="form-profile">
               <label className="profile-label">Name</label>
               <input
@@ -28,7 +91,7 @@ function ProfileScreen() {
                 type="text"
                 name="name"
                 className="profile-input"
-                placeholder="User's name"
+                placeholder={name}
                 readOnly
               />
             </div>
@@ -39,18 +102,20 @@ function ProfileScreen() {
                 type="email"
                 name="email"
                 className="profile-input"
-                placeholder="User's email"
+                placeholder={email}
                 readOnly
               />
             </div>
             <div className="form-profile">
-              <label className="profile-label">Password</label>
+              <label className="profile-label">Change Password</label>
               <input
                 id="password"
                 type="password"
                 name="password"
                 className="profile-input"
-                placeholder="User's Password"
+                placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;"
+                value={inputs.password}
+                onChange={handleChange}
               />
             </div>
             <div className="form-profile">
@@ -60,7 +125,9 @@ function ProfileScreen() {
                 type="text"
                 name="linkedInId"
                 className="profile-input"
-                placeholder="User's LinkedIn"
+                placeholder={linkedin}
+                value={inputs.linkedInId}
+                onChange={handleChange}
               />
             </div>
             <div className="form-profile">
@@ -70,17 +137,18 @@ function ProfileScreen() {
                 type="text"
                 name="GithubId"
                 className="profile-input"
-                placeholder="User's Github"
+                placeholder={github}
+                value={inputs.GithubId}
+                onChange={handleChange}
               />
             </div>
-        </form>
+          </form>
+        </div>
+
+        <div className="profile-content-right">
+          <button className="save-button" onClick={handleSubmit}>Save</button>
+        </div>
       </div>
-
-    <div className="profile-content-right">
-        <button className="save-button">Save</button>
-    </div>
-
-  </div>
-  </>);
+    </>);
 };
 export default ProfileScreen;

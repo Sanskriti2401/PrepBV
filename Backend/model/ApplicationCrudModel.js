@@ -11,6 +11,7 @@ const ApplicationCrudModel = {
   searchUsers,
   createQuestionSet,
   questionSet,
+  edit,
   append,
   remove,
   lids,
@@ -86,6 +87,17 @@ async function append(id, email) {
     console.log("Added Successfully!");
     return application;
   }
+}
+
+async function edit(email, password, linkedinId, GithubId) {
+  const app = await Application.findOne({ email });
+  await Application.updateOne({ "email": email },
+  { $set: { "githubId": GithubId, "password": password } });
+  await Application.updateOne({ "email": email },
+  { $set: { "linkedInId": linkedinId } } );
+  const application = await Application.findOne({ email });
+  console.log(application);
+  return application;
 }
 
 async function remove(id, email) {
