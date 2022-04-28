@@ -6,11 +6,11 @@ import Card from "./card";
 import company from "./company";
 import Footer from "./footer";
 import Slider from "./slider";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+//import { Link } from "react-router-dom";
+//import { useNavigate } from "react-router-dom";
 
 function createcard(company) {
-  const navigate = useNavigate();
+ // const navigate = useNavigate();
   return (
     <Card key={company.id} img={company.url} keyName={company.keyName}>
       

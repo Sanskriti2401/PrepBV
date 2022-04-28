@@ -9,6 +9,14 @@ const ApplicationSchema = new Schema({
   githubId: { type: String },
   year: { type: String },
   branch: { type: String },
-  bookmark: { type: Array }
+  bookmark: { type: Array },
+  check: [
+    {
+        topic: {type:String},
+        id: {type:String},
+        
+        
+    }
+]
 })
 export default ApplicationSchema
