@@ -9,6 +9,9 @@ export default function LoginBasic() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
   const [user, setUser] = useState('');
+  const [name, setName] = useState('');
+  const [gitlink, setGitlink] = useState('');
+  const [linlink, setLinlink] = useState('');
 
   const handleChange = (event) => {
     const name = event.target.name;
@@ -37,7 +40,7 @@ export default function LoginBasic() {
       // console.log(user);
       const { body } = response;
 
-      const { message } = body;
+      // const { message } = body;
       console.log(body);
       // if (response.statusText == "OK") {
       //   setIsSubmitted(true);
@@ -48,8 +51,14 @@ export default function LoginBasic() {
     }).then(function (data) {
       console.log(typeof(data.application.email));
       const x=data.application.email;
+      const y=data.application.name;
+      const z=data.application.linkedInId;
+      const p=data.application.githubId;
       console.log('x:' + x);
       setUser(x);
+      setName(y);
+      setLinlink(z);
+      setGitlink(p);
       console.log(user);
       // console.log(data.message);
       console.log('entered');
@@ -74,6 +83,12 @@ export default function LoginBasic() {
       }
       console.log('end: ' + user);
       localStorage.setItem('user', user)
+      localStorage.setItem('name', name)
+      localStorage.setItem('github', gitlink)
+      localStorage.setItem('linkedin', linlink)
+      console.log('name: ' + name);
+      console.log('git: ' + gitlink);
+      console.log('linked: ' + linlink);
       return() => {
         cancel=true;
       }

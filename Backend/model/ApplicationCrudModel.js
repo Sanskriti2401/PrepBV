@@ -11,10 +11,11 @@ const ApplicationCrudModel = {
   searchUsers,
   createQuestionSet,
   questionSet,
+  edit,
   append,
   remove,
   lids
-  
+
 };
 
 async function lids() {
@@ -25,18 +26,17 @@ async function lids() {
 }
 
 async function create(attrs) {
-  attrs.bookmark=[];
+  attrs.bookmark = [];
   const application = await Application.create(attrs);
   console.log("Creation Completed");
   return application;
 }
 
-async function append(id,email) {
+async function append(id, email) {
   const application = await Application.findOne({ email });
   // const res = await Application.updateOne({ email: email }, { bookmark: id });
   // const application = await Application.create(attrs);
-  if(!application.bookmark.includes(id))
-  {
+  if (!application.bookmark.includes(id)) {
     application.bookmark.push(id);
     await application.save();
     console.log("Added Successfully!");
@@ -44,14 +44,24 @@ async function append(id,email) {
   }
 }
 
-async function remove(id,email) {
+async function edit(email, password, linkedinId, GithubId) {
+  const app = await Application.findOne({ email });
+  await Application.updateOne({ "email": email },
+  { $set: { "githubId": GithubId, "password": password } });
+  await Application.updateOne({ "email": email },
+  { $set: { "linkedInId": linkedinId } } );
+  const application = await Application.findOne({ email });
+  console.log(application);
+  return application;
+}
+
+async function remove(id, email) {
   const application = await Application.findOne({ email });
   // const res = await Application.updateOne({ email: email }, { bookmark: id });
   // const application = await Application.create(attrs);
-  if(application.bookmark.includes(id))
-  {
+  if (application.bookmark.includes(id)) {
     var index = application.bookmark.indexOf(id);
-    application.bookmark.splice(index,1);
+    application.bookmark.splice(index, 1);
     await application.save();
     console.log("Deleted Successfully!");
     return application;
