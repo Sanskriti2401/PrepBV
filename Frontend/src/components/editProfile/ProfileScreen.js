@@ -4,37 +4,101 @@ import React from "react";
 import UserPic from "../../images/1.png";
 import "./ProfileScreen.css";
 import { useState } from "react";
-
+import axios from "axios";
 
 function ProfileScreen() {
-
-  const email = window.localStorage.getItem('user');
-  const name = window.localStorage.getItem('name');
-  const github = window.localStorage.getItem('github');
-  const linkedin = window.localStorage.getItem('linkedin');
+  const email = window.localStorage.getItem("user");
+  const name = window.localStorage.getItem("name");
+  const github = window.localStorage.getItem("github");
+  const linkedin = window.localStorage.getItem("linkedin");
   const myArr = {
-     linkedInId: linkedin ,
-     GithubId: github 
-  }
-  const init=0;
+    linkedInId: linkedin,
+    GithubId: github,
+    photo: "",
+  };
+  const init = 0;
   const [inputs, setInputs] = useState(myArr);
   const [selectedFile, setselectedFile] = useState();
-  const [change, setChange ] = useState(init);
-  const [show, setShow ] = useState(0);
+  const [change, setChange] = useState(init);
+  const [show, setShow] = useState(0);
+  const [pic, setPic] = useState(0);
 
+  const ProfilePic = () => {
+    
+    const formData = new FormData();
+    formData.append("email", email);
+    formData.append("photo", inputs.photo);
+    console.log(inputs.photo);
+    console.log(email);
+
+    console.log(...formData);
+    const plainFormData = Object.fromEntries(formData.entries());
+    const formDataJsonString = JSON.stringify(plainFormData);
+    
+    fetch("http://localhost:8000/profile", {
+      crossDomain: true,
+      method: "POST",
+
+      // body: JSON.stringify(Object.fromEntries(formData))
+      body: formData,
+    }).then(function (response) {
+      console.log(response.body);
+
+      const { body } = response;
+
+      const { message } = body;
+
+      return response.json();
+    });
+    // axios
+    //   .post("https://localhost:8000/profile", formData, { headers })
+    //   .then((res) => {
+    //     console.log(res);
+    //   })
+    //   .catch(function (error) {
+    //     if (error.response) {
+    //       // Request made and server responded
+    //       console.log(error.response.data);
+    //       console.log(error.response.status);
+    //       console.log(error.response.headers);
+    //     } else if (error.request) {
+    //       // The request was made but no response was received
+    //       console.log(error.request);
+    //     } else {
+    //       // Something happened in setting up the request that triggered an Error
+    //       console.log("Error", error.message);
+    //     }
+    //   });
+    // const myurl = "https://localhost:8000/profile";
+    // axios({
+    //   method: "post",
+    //   url: "/profile",
+    //   data: formData,
+    //   headers: { "Content-Type": "multipart/form-data" },
+    // })
+    //   .then(function (response) {
+    //     //handle success
+    //     console.log(response);
+    //   })
+    //   .catch(function (response) {
+    //     //handle error
+    //     console.log(response);
+    //   });
+  };
   const handleChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
-    if(name==='password'){
+    if (name === "password") {
       setChange(1);
     }
     setInputs((values) => ({ ...values, [name]: value }));
   };
 
   const handleSubmit = (event) => {
-    const email = window.localStorage.getItem('user')
+    const email = window.localStorage.getItem("user");
     console.log(email);
     console.log(inputs.linkedInId);
+    if (pic == 1) ProfilePic();
     fetch("http://localhost:8000/login", {
       crossDomain: true,
       method: "POST",
@@ -48,7 +112,7 @@ function ProfileScreen() {
         linkedInId: inputs.linkedInId,
         GithubId: inputs.GithubId,
         change: change,
-        flag: 1
+        flag: 1,
       }),
     }).then(function (response) {
       console.log(response.body);
@@ -59,11 +123,12 @@ function ProfileScreen() {
 
       return response.json();
     });
-    alert('submitted')
+    alert("submitted");
   };
 
-  const uploadImage=React.useRef(null);
+  const uploadImage = React.useRef(null);
 
+  /*
   const fileSelectedHandler = (event) => {
     const [file] = event.target.files;
     if(file){
@@ -81,10 +146,15 @@ function ProfileScreen() {
       // setShow(1);
     }
     
-  }
+  }*/
+  const fileSelectedHandler = (event) => {
+    setPic(1);
+    setInputs({ ...inputs, photo: event.target.files[0] });
+    // console.log(event.target.files[0]);
+  };
 
   const fileUploadHandler = (event) => {
-    const email = localStorage.getItem('email');
+    const email = localStorage.getItem("email");
     fetch("http://localhost:8000/Login", {
       crossDomain: true,
       method: "POST",
@@ -96,7 +166,7 @@ function ProfileScreen() {
         email: email,
         data: uploadImage,
         required: true,
-        img:1 
+        img: 1,
       }),
     }).then(function (response) {
       console.log(response.body);
@@ -107,8 +177,7 @@ function ProfileScreen() {
 
       return response.json();
     });
-
-  }
+  };
 
   return (
     <>
@@ -126,7 +195,16 @@ function ProfileScreen() {
           </div>
           <div className="profilepic">
             <h5>Update Profile Picture</h5>
-            <input type="file" accept="image/*" multiple={false} name="mypic" id="dp" placeholder="Select Your profile picture" onChange={fileSelectedHandler} readOnly />
+            <input
+              type="file"
+              accept="image/*"
+              multiple={false}
+              name="mypic"
+              id="dp"
+              placeholder="Select Your profile picture"
+              onChange={fileSelectedHandler}
+              readOnly
+            />
             {/* <button onClick={{fileUploadHandler}}>+</button> */}
           </div>
         </div>
@@ -195,9 +273,12 @@ function ProfileScreen() {
         </div>
 
         <div className="profile-content-right">
-          <button className="save-button" onClick={handleSubmit}>Save</button>
+          <button className="save-button" onClick={handleSubmit}>
+            Save
+          </button>
         </div>
       </div>
-    </>);
-};
+    </>
+  );
+}
 export default ProfileScreen;
