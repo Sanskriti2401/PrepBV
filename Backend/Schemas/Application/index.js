@@ -12,11 +12,9 @@ const ApplicationSchema = new Schema({
   bookmark: { type: Array },
   check: [
     {
-        topic: {type:String},
-        id: {type:String},
-        
-        
+      topic: { type: String },
+      id: { type: String },
     }
-]
+  ]
 })
 export default ApplicationSchema
