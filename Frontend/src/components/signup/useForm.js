@@ -8,6 +8,8 @@ const useForm = (callback, validateInfo) => {
     cpassword: "",
     linkedInId: "",
     githubId: "",
+    year: "",
+    branch: "",
   });
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -37,6 +39,8 @@ const useForm = (callback, validateInfo) => {
         cpassword: values.cpassword,
         linkedInId: values.linkedInId,
         githubId: values.githubId,
+        year: values.year,
+        branch: values.branch,
       }),
     }).then(function (response) {
       console.log(response);
