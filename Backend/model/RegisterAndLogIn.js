@@ -25,14 +25,14 @@ async function register(attrs) {
   const { id, email, flag, topic, temp } = attrs;
   if (id != null && topic != null) {
     if (temp == 1) {
-     const app = await ApplicationCrudModel.unchecked(id, email);
+      const app = await ApplicationCrudModel.unchecked(id, email);
       const application = await ApplicationCrudModel.findByEmail(email);
       return {
         application,
         message: "Removed from checked array!",
       };
     } else {
-     const app = await ApplicationCrudModel.checked(id, email, topic);
+      const app = await ApplicationCrudModel.checked(id, email, topic);
       const application = await ApplicationCrudModel.findByEmail(email);
       return {
         application,
@@ -92,13 +92,19 @@ async function register(attrs) {
 
 async function logIn(attrs) {
   console.log(attrs);
+  const { change } = attrs;
   const { flag } = attrs;
-  if (flag != null) {
-    const pass=attrs.password;
+  if (flag != null && change == 1) {
+    const pass = attrs.password;
     const hash = bcrypt.hashSync(pass.toString(), 10);
     attrs.password = hash;
-    const {email, password, linkedInId, GithubId}=attrs;
-    const app = await ApplicationCrudModel.edit(email, password, linkedInId, GithubId);
+  }
+  if (flag != null) {
+    // if (change == 1) {
+
+    // }
+    const { email, password, linkedInId, GithubId, change } = attrs;
+    const app = await ApplicationCrudModel.edit(email, password, linkedInId, GithubId, change);
     // const application = await ApplicationCrudModel.findByEmail(email);
     console.log('model');
     return {

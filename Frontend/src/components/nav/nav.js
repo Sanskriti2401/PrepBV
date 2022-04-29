@@ -5,6 +5,11 @@ import Avatar from "@material-ui/core/Avatar";
 import { Link } from "react-router-dom";
 
 export default function Nav() {
+
+  const logOut = () => {
+    localStorage.clear();
+  };
+
   return (
     <>
       <div className="nav">
@@ -39,7 +44,7 @@ export default function Nav() {
                 <Link to="/bookmark">Bookmarked</Link>
               </li>
               <li className="menu-content">
-                <Link to="#">Log out</Link>
+                <Link to="/login" onClick={logOut}>Log out</Link>
               </li>
             </ul>
           </li>

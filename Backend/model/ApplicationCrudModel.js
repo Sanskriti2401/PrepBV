@@ -89,12 +89,21 @@ async function append(id, email) {
   }
 }
 
-async function edit(email, password, linkedinId, GithubId) {
+async function edit(email, password, linkedinId, GithubId, change) {
   const app = await Application.findOne({ email });
-  await Application.updateOne({ "email": email },
-  { $set: { "githubId": GithubId, "password": password } });
-  await Application.updateOne({ "email": email },
-  { $set: { "linkedInId": linkedinId } } );
+
+  if (change == 1) {
+    await Application.updateOne({ "email": email },
+      { $set: { "githubId": GithubId, "password": password } });
+    await Application.updateOne({ "email": email },
+      { $set: { "linkedInId": linkedinId } });
+  }
+  else {
+    await Application.updateOne({ "email": email },
+      { $set: { "githubId": GithubId } });
+    await Application.updateOne({ "email": email },
+      { $set: { "linkedInId": linkedinId } });
+  }
   const application = await Application.findOne({ email });
   console.log(application);
   return application;
