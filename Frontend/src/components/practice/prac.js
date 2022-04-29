@@ -10,7 +10,7 @@ function createCard(topicDetails) {
         key={topicDetails.id}
         TopicName={topicDetails.topicName}
         QCount={topicDetails.qCount}
-        percentdone={topicDetails.percentdone}
+        topic={topicDetails.topic}
         routes={topicDetails.routes}
       />
     </>

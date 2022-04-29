@@ -35,6 +35,8 @@ const addit = (props) => {
 export default function Bst() {
   const [getData, getSetData] = useState([])
   const [loading, setLoading] = useState(true)
+  const [entry, setEntry] = useState([]);
+  const email = window.localStorage.getItem("user");
   const fetchData = async () => {
     try {
       await fetch("http://localhost:8000/QuestionSet/Binary Search Trees").then(res => res.json())
@@ -53,15 +55,60 @@ export default function Bst() {
     fetchData()
   }, [])
 
+  const fetchData1 = async () => {
+    try {
+      await fetch("http://localhost:8000/lids")
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          // const { application } = data;
+          console.log("------------------");
+          console.log(data.application);
+          for (var i = 0; i < data.application.length; i++) {
+            if (data.application[i].email === email)
+              setEntry(data.application[i].check);
+          }
+          // console.log(entry);
+  
+          //   setLoading(false);
+        });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  
+  useEffect(() => {
+    fetchData1();
+  }, []);
+  var a = false;
+  
+  const filteritem = (id) => {
+    for (let i = 0; i < entry.length; ++i) {
+      if (entry[i].id === id) {
+        console.log(entry[i].id);
+        return true;
+      }
+    }
+    return false;
+  };
+  
   return (
     <div>
       <Nav />
       <div className="topic-heading">
-        <h1 >Binary Search Tree</h1>
+        <h1>Binary Search Tree</h1>
       </div>
-      {getData.map((todo) => (
+      {getData.map((todo, _id) => (
         <div className="question-info">
-          <Checkbox />
+          {
+            (a = filteritem(todo._id))
+            /*
+            entry
+              .filter((number) => number.id === todo._id)
+              .map((number) => console.log(number.id))*/
+          }
+  
+          <Checkbox todo={todo} check={a} />
           <a href={todo.URL}>{todo.Problem}</a>
           <div className="book">
             <span onClick={() => addit(todo)}>
@@ -71,6 +118,6 @@ export default function Bst() {
         </div>
       ))}
     </div>
-  )
-
-}
+  );
+  }
+  

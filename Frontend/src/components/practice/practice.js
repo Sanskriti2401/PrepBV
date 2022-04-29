@@ -184,7 +184,7 @@ export default Practice;*/
 return (
   <>
     
-      {count(props.TopicName)}
+      {count(props.topic)}
       <Practicee>
       <h3>{props.TopicName}</h3>
       <Solve

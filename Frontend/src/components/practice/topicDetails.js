@@ -1,66 +1,66 @@
-const topicDetails=[
-    {
-        id:"1",
-        topicName: "Array",
-        qCount: "8",
-        routes: "array",
-        percentdone: "20"
-    }, 
-    {
-        id:"2",
-        topicName:"Strings",
-        qCount:"8",
-        routes: "strings",
-        percentdone: "60"
-    },
-    {
-        id:"3",
-        topicName:"Linkedlist",
-        qCount:"8",
-        routes: "linkedlist",
-        percentdone: "20"
-    },
-    {
-        id:"4",
-        topicName:"Sorting",
-        qCount:"8",
-        routes: "sorting",
-        percentdone: "90"
-    },
-    {
-        id:"5",
-        topicName:"Bst",
-        qCount:"8",
-        routes: "bst",
-        percentdone: "20"
-    },
-    {
-        id:"6",
-        topicName:"Backtracking",
-        qCount:"8",
-        routes: "backtracking",
-        percentdone: "60"
-    },
-    {
-        id:"7",
-        topicName:"Stack",
-        qCount:"8",
-        routes: "stack",
-        percentdone: "50"
-    },
-    {
-        id:"8",
-        topicName:"Heap",
-        qCount:"8",
-        routes: "heap",
-        percentdone: "30"
-    },
-    {
-        id:"9",
-        topicName:"Graph",
-        qCount:"8",
-        routes: "graph",
-        percentdone: "40"
-    }
+const topicDetails = [
+  {
+    id: "1",
+    topicName: "Array",
+    topic: "Array",
+    qCount: "8",
+    routes: "array",
+  },
+  {
+    id: "2",
+    topicName: "Strings",
+    topic: "String",
+    qCount: "8",
+    routes: "strings",
+  },
+  {
+    id: "3",
+    topicName: "LinkedList",
+    topic: "LinkedList",
+    qCount: "8",
+    routes: "linkedlist",
+  },
+  {
+    id: "4",
+    topicName: "Sorting",
+    topic: "Searching & Sorting",
+    qCount: "8",
+    routes: "sorting",
+  },
+  {
+    id: "5",
+    topicName: "BST",
+    topic: "Binary Search Trees",
+    qCount: "8",
+    routes: "bst",
+  },
+  {
+    id: "6",
+    topicName: "Backtracking",
+    topic: "BackTracking",
+    qCount: "8",
+    routes: "backtracking",
+  },
+  {
+    id: "7",
+    topicName: "Stack",
+    topic: "Stacks",
+    qCount: "8",
+    routes: "stack",
+  },
+  {
+    id: "8",
+    topicName: "Heap",
+    topic: "Heap",
+    qCount: "8",
+    routes: "heap",
+  },
+  {
+    id: "9",
+    topicName: "Graph",
+    topic: "Graph",
+    qCount: "8",
+    routes: "graph",
+  },
 ];
 export default topicDetails;
