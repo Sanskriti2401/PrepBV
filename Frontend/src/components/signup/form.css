@@ -4,7 +4,7 @@
     position: relative;
     top: 0%;
     
-    height:800px;
+    height: 1200px;
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
@@ -113,7 +113,7 @@
     width: 80%;
     margin-bottom: 1.5rem;
     position: absolute;
-    top: 12%;
+    top: 7%;
     color: rgb(15, 15, 15);
   }
   
@@ -174,12 +174,11 @@
   
   .form-input-login {
     font-size: 1rem;
-    margin-top: 1px;
     color: rgb(0, 0, 0);
     font-weight: 700;
     width: 80%;
     position: absolute;
-    top: 5%;
+    top: 3%;
     text-align: center;
   }
   

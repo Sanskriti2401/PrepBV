@@ -11,6 +11,15 @@ export default function validateInfo(values) {
     errors.email = "Email address in invalid";
   }
 
+  if(!values.year)
+  {
+    errors.year = "Year required";
+  }
+  if(!values.branch)
+  {
+    errors.branch = "Branch required";
+  }
+
   if (!values.linkedInId) {
     errors.linkedInId = "URL required";
   }

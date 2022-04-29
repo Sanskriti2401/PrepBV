@@ -46,6 +46,32 @@ const FormSignup = ({ submitForm }) => {
           {errors.email && <p>{errors.email}</p>}
         </div>
         <div className="form-inputs">
+          <label className="form-label">Year:</label>
+          <input
+            id="year"
+            type= "number"
+            name="year"
+            className="form-input"
+            placeholder="Enter your current year"
+            value={values.year}
+            onChange={handleChange}
+          />
+          {errors.year && <p>{errors.year}</p>}
+        </div>
+        <div className="form-inputs">
+          <label className="form-label">Branch:</label>
+          <input
+            id="branch"
+            type="text"
+            name="branch"
+            className="form-input"
+            placeholder="Enter your branch"
+            value={values.branch}
+            onChange={handleChange}
+          />
+          {errors.branch && <p>{errors.branch}</p>}
+        </div>
+        <div className="form-inputs">
           <label className="form-label">LinkedIn profile link:</label>
           <input
             id="linkedInId"
