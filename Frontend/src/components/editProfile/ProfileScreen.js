@@ -1,5 +1,6 @@
 import Nav from "../nav/nav";
 //import Avatar from "./avatar";
+import React from "react";
 import UserPic from "../../images/1.png";
 import "./ProfileScreen.css";
 import { useState } from "react";
@@ -13,12 +14,13 @@ function ProfileScreen() {
   const linkedin = window.localStorage.getItem('linkedin');
   const myArr = {
      linkedInId: linkedin ,
-     GithubId: github ,
-     password: '********'
+     GithubId: github 
   }
+  const init=0;
   const [inputs, setInputs] = useState(myArr);
   const [selectedFile, setselectedFile] = useState();
-  const [change, setChange ] = useState(0);
+  const [change, setChange ] = useState(init);
+  const [show, setShow ] = useState(0);
 
   const handleChange = (event) => {
     const name = event.target.name;
@@ -60,12 +62,52 @@ function ProfileScreen() {
     alert('submitted')
   };
 
+  const uploadImage=React.useRef(null);
+
   const fileSelectedHandler = (event) => {
-    console.log(event.target.files[0]);
-    setselectedFile(event.target.files[0])
+    const [file] = event.target.files;
+    if(file){
+      const reader = new FileReader();
+      const {current} = uploadImage;
+      current.file = file;
+      reader.onload = (e) => {
+          current.src = e.target.result;
+      }
+      reader.readAsDataURL(file);
+      console.log(file);
+      console.log(file.name);
+      console.log(current.src);
+      setselectedFile(current);
+      // setShow(1);
+    }
+    
   }
 
   const fileUploadHandler = (event) => {
+    const email = localStorage.getItem('email');
+    fetch("http://localhost:8000/Login", {
+      crossDomain: true,
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+
+      body: JSON.stringify({
+        email: email,
+        data: uploadImage,
+        required: true,
+        img:1 
+      }),
+    }).then(function (response) {
+      console.log(response.body);
+
+      const { body } = response;
+
+      const { message } = body;
+
+      return response.json();
+    });
+
   }
 
   return (
@@ -79,11 +121,12 @@ function ProfileScreen() {
       <div className="editProfileScreen">
         <div className="profile-content-left">
           <div className="imgdiv">
-            <img src={UserPic} alt="Your image" />
+            {/* {show==1 ? <img ref={uploadImage} alt="Your image" /> : <img src={UserPic} alt="Your image" />} */}
+            <img ref={uploadImage} alt="Your image" />
           </div>
           <div className="profilepic">
             <h5>Update Profile Picture</h5>
-            <input type="file" name="mypic" id="dp" placeholder="Select Your profile picture" onChange={fileSelectedHandler} readOnly />
+            <input type="file" accept="image/*" multiple={false} name="mypic" id="dp" placeholder="Select Your profile picture" onChange={fileSelectedHandler} readOnly />
             {/* <button onClick={{fileUploadHandler}}>+</button> */}
           </div>
         </div>
