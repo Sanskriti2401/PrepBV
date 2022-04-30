@@ -3,12 +3,54 @@ import "./nav.css";
 import b from "../../images/logo.jpeg";
 import Avatar from "@material-ui/core/Avatar";
 import { Link } from "react-router-dom";
+import { useState, useEffect  } from "react";
 
 export default function Nav() {
+  const [getData, getSetData] = useState([]);
+  const email = window.localStorage.getItem("user");
+  const name = window.localStorage.getItem("name");
+  const github = window.localStorage.getItem("github");
+  const linkedin = window.localStorage.getItem("linkedin");
+  const [mypic, setMyPic] = useState('1.png');
 
   const logOut = () => {
     localStorage.clear();
   };
+  const fetchData = async () => {
+    try {
+      await fetch("http://localhost:8000/pic")
+        .then((res) => res.json())
+        .then((data) => {
+          console.log('data');
+          console.log(data);
+          // console.log(data.length);
+          for(var i=0;i<data.length;i++)
+          {
+            console.log(typeof(data[i].photo));
+            if(data[i].email===email)
+            {
+              getSetData(data[i]);
+              setMyPic(data[i].photo);
+
+            }
+              
+          }
+          // getSetData(data);
+          // console.log(requiredData);
+          // setLoading(false);
+        });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const str = '../../uploads/';
+  const final = str.concat(mypic);
+  const mypic1 = require('../../uploads/' + mypic);
 
   return (
     <>
@@ -34,7 +76,7 @@ export default function Nav() {
           <li className="profile">
             <Avatar
               alt="profile"
-              src="https://www.kindpng.com/picc/m/78-785827_user-profile-avatar-login-account-male-user-icon.png"
+              src={mypic1}
             />
             <ul className="menu">
               <li className="menu-content">
