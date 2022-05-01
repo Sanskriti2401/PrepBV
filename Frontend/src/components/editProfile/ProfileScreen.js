@@ -3,8 +3,9 @@ import Nav from "../nav/nav";
 import React from "react";
 import UserPic from "../../images/1.png";
 import "./ProfileScreen.css";
-import { useState } from "react";
-import axios from "axios";
+import { useState, useEffect  } from "react";
+//import axios from "axios";
+import x from '../../uploads/3785bd25-3979-40a5-82be-7b42937e0b35-1651329393426.jpeg';
 
 function ProfileScreen() {
   const email = window.localStorage.getItem("user");
@@ -22,9 +23,10 @@ function ProfileScreen() {
   const [change, setChange] = useState(init);
   const [show, setShow] = useState(0);
   const [pic, setPic] = useState(0);
+  const [mypic, setMyPic] = useState('1.png');
 
   const ProfilePic = () => {
-    
+
     const formData = new FormData();
     formData.append("email", email);
     formData.append("photo", inputs.photo);
@@ -32,9 +34,7 @@ function ProfileScreen() {
     console.log(email);
 
     console.log(...formData);
-    const plainFormData = Object.fromEntries(formData.entries());
-    const formDataJsonString = JSON.stringify(plainFormData);
-    
+
     fetch("http://localhost:8000/profile", {
       crossDomain: true,
       method: "POST",
@@ -126,6 +126,41 @@ function ProfileScreen() {
     alert("submitted");
   };
 
+  const [getData, getSetData] = useState([]);
+
+  const fetchData = async () => {
+    try {
+      await fetch("http://localhost:8000/pic")
+        .then((res) => res.json())
+        .then((data) => {
+          console.log('data');
+          console.log(data);
+          // console.log(data.length);
+          for(var i=0;i<data.length;i++)
+          {
+            console.log(typeof(data[i].photo));
+            if(data[i].email===email)
+            {
+              getSetData(data[i]);
+              setMyPic(data[i].photo);
+
+            }
+              
+          }
+          // getSetData(data);
+          // console.log(requiredData);
+          // setLoading(false);
+        });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+
   const uploadImage = React.useRef(null);
 
   /*
@@ -153,45 +188,30 @@ function ProfileScreen() {
     // console.log(event.target.files[0]);
   };
 
-  const fileUploadHandler = (event) => {
-    const email = localStorage.getItem("email");
-    fetch("http://localhost:8000/Login", {
-      crossDomain: true,
-      method: "POST",
-      headers: {
-        "Content-type": "application/json",
-      },
-
-      body: JSON.stringify({
-        email: email,
-        data: uploadImage,
-        required: true,
-        img: 1,
-      }),
-    }).then(function (response) {
-      console.log(response.body);
-
-      const { body } = response;
-
-      const { message } = body;
-
-      return response.json();
-    });
-  };
-
+  const str = '../../uploads/';
+  const final = str.concat(mypic);
+  const mypic1 = require('../../uploads/' + mypic);
   return (
     <>
       <Nav />
-      {console.log(email)}
+      {/* {console.log(email)}
       {console.log(name)}
       {console.log(inputs.linkedInId)}
       {console.log(inputs.GithubId)}
-      {console.log(inputs.password)}
+      {console.log(inputs.password)} */}
       <div className="editProfileScreen">
         <div className="profile-content-left">
           <div className="imgdiv">
             {/* {show==1 ? <img ref={uploadImage} alt="Your image" /> : <img src={UserPic} alt="Your image" />} */}
-            <img ref={uploadImage} alt="Your image" />
+            {console.log('fetch')}
+            {console.log(getData.photo)}
+            {console.log('fi')}
+            {console.log(final)}
+            {console.log(mypic)}
+            {console.log(typeof(mypic))}
+            {<img src={mypic1}/> } 
+           
+            {/* <img ref={uploadImage} alt="Your image" /> */}
           </div>
           <div className="profilepic">
             <h5>Update Profile Picture</h5>

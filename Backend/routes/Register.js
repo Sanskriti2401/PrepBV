@@ -13,7 +13,7 @@ const Profile = mongoose.model("Profile", ProfileSchema);
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     console.log(req.body.email);
-    cb(null, "./images/");
+    cb(null, "../Frontend/src/uploads");
   },
   filename: function (req, file, cb) {
     cb(null, uuidv4() + "-" + Date.now() + path.extname(file.originalname));
@@ -69,5 +69,18 @@ RegisterLoginRouter.post(
     // return entry;
   }
 );
+
+RegisterLoginRouter.get("/pic", (req, res) => {
+  const app=Profile.find({}, (err, items) => {
+    if(err) {
+      console.log(err);
+      res.status(500).send('An error occured', err);
+    }
+    else {
+      res.send(items);
+    }
+  });
+  return app;
+});
 
 export default RegisterLoginRouter;
