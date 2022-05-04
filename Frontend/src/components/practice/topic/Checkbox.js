@@ -30,7 +30,7 @@ export default function Checkbox(props) {
 
       return response.json();
     });
-    alert(`Checked`);
+    alert(`Question Done`);
   };
 
   const remove = (props) => {
