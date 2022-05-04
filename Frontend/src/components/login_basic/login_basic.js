@@ -65,14 +65,14 @@ export default function LoginBasic() {
       { data.message === "Wrong Password" ? setIsSubmitted(false) : setIsSubmitted(true)}
       
     });
-
     event.preventDefault();
+    isSubmitted ? navigate("/") : alert('Invalid Credentials!')
     console.log(inputs);
   };
 
   const navigate = useNavigate();
 
-  useEffect(() => {
+ /* useEffect(() => {
     setTimeout(() => {
       let cancel=false;
       console.log(" after message: " + isSubmitted);
@@ -95,7 +95,7 @@ export default function LoginBasic() {
     }, 1000);
     
   },[isSubmitted])
-
+*/
   return (
     <>
       <div className="l_b">

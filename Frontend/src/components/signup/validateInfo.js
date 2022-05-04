@@ -7,7 +7,9 @@ export default function validateInfo(values) {
   //Checking conditions for email
   if (!values.email) {
     errors.email = "Email required";
-  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
+  }
+  else if (!/^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@banasthali.in$/i.test(values.email)) {
+    //else if (^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@banasthali.in$) {
     errors.email = "Email address in invalid";
   }
 
