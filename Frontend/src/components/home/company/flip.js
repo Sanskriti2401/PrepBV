@@ -2,8 +2,36 @@ import React from "react";
 import Nav from "../../nav/nav";
 import flip from "../../../images/flip.jpeg";
 import "./company.css";
-import Checkbox from "../../practice/topic/Checkbox";
+//import Checkbox from "../../practice/topic/Checkbox";
 import { useState, useEffect } from "react";
+import { BsBookHalf } from "react-icons/bs";
+
+const addit = (props) => {
+  const email = window.localStorage.getItem("user");
+  console.log(email);
+  console.log(props._id);
+  fetch("http://localhost:8000/Register", {
+    crossDomain: true,
+    method: "POST",
+    headers: {
+      "Content-type": "application/json",
+    },
+
+    body: JSON.stringify({
+      id: props._id,
+      email: email,
+    }),
+  }).then(function (response) {
+    console.log(response.body);
+
+    //const { body } = response;
+
+    //const { message } = body;
+
+    return response.json();
+  });
+  alert(`Added to you bookmark list!`);
+};
 
 function Flip() {
   const [getData, getSetData] = useState([])
@@ -59,8 +87,13 @@ function Flip() {
         <h1>Questions</h1>
         {getData.map((todo) => (
         <div className="question-list">
-          <Checkbox />
+          
           <a href={todo.URL}>{todo.Problem}</a>
+          <div className="book">
+            <span onClick={() => addit(todo)}>
+              <BsBookHalf />
+            </span>
+          </div>
         </div>
       ))}
 
