@@ -66,6 +66,10 @@ export default function LoginBasic() {
       
     });
     event.preventDefault();
+    localStorage.setItem('user', user)
+    localStorage.setItem('name', name)
+    localStorage.setItem('github', gitlink)
+    localStorage.setItem('linkedin', linlink)
     isSubmitted ? navigate("/") : alert('Invalid Credentials!')
     console.log(inputs);
   };
@@ -82,10 +86,6 @@ export default function LoginBasic() {
         // isSubmitted ? navigate("/home") : alert('Invalid Credentials!')
       }
       console.log('end: ' + user);
-      localStorage.setItem('user', user)
-      localStorage.setItem('name', name)
-      localStorage.setItem('github', gitlink)
-      localStorage.setItem('linkedin', linlink)
       console.log('name: ' + name);
       console.log('git: ' + gitlink);
       console.log('linked: ' + linlink);
